@@ -34,6 +34,9 @@
        "systemctl --user start hyprpolkitagent"
        "nix run ~/nixos-config/home/desktop/astal/"
     ];
+    windowrulev2 = [
+      "suppressevent maximize, class:.*"
+    ]
 
     
   
