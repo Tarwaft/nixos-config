@@ -36,7 +36,11 @@
     ];
     windowrulev2 = [
       "suppressevent maximize, class:.*"
-    ]
+    ];
+    dwindle = {
+      pseudotile = "yes";
+      preserve_split = "yes";
+    };
 
     
   
@@ -116,6 +120,8 @@
 
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
+
+        "$mod, J, togglesplit"
 
         # Audio Control
         ", XF86AudioPause, exec, playerctl play-pause"
