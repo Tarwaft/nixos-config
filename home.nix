@@ -4,6 +4,17 @@
 
   home.username = "tarwaft";
   home.homeDirectory = "/home/tarwaft";
+  home.sessionVariables = {
+    EDITOR = "neovim";
+    BROWSER = "zen-twilight";
+  };
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "x-scheme-handler/https" = ["zen-twilight.desktop"];
+      "x-scheme-handler/http" = ["zen-twilight.desktop"];
+    };
+  };
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
