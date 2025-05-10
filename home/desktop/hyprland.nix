@@ -65,6 +65,7 @@
 
     general = {
       gaps_in = 2;
+      gaps_out = 1;
     };
 
     decoration = {
