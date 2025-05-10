@@ -19,6 +19,7 @@
     "$menu" = "rofi -show drun";
     "$file" = "dolphin";
     "$browser" = "zen-twilight";
+    "$godot-steam" = "steam-run /home/tarwaft/godot-steam/godotsteam.multiplayer.441.editor.linux.x86_64";
 
     
     env = [
@@ -109,6 +110,7 @@
         "$mod, D, exec, $menu"
         "$mod, E, exec, $file"
         "$mod, B, exec, $browser"
+        "$mod, G, exec, $godot-steam"
         "$mod, P, exec, hyprpicker -a"
         "$mod, S, exec, hyprshot -m region -z -o ~/Pictures/Screenshots"
 
