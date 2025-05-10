@@ -7,7 +7,8 @@
     ./rofi.nix
     ./hyprcursor.nix
     ./hyprpaper.nix
-    ./astal.nix
+   
+    ./waybar.nix
 ];
     # Optional, hint Electron apps to use Wayland:
     programs.kitty.enable = true;
