@@ -52,7 +52,6 @@
         background: transparent;
         color:#ffffff;
         margin: 3px 0px;
-
         }
 
         #pulseaudio-slider {
@@ -74,9 +73,6 @@
         
         }
 
-        #pulseaudio-slider highlight {
-        background-color: #FFFFFF;
-        }
         #workspaces {
         padding: 0px;
         }
@@ -92,4 +88,7 @@
         '';
 
     };
+    wayland.windowManager.hyprland.settings.exec-once = [
+        "waybar"
+    ];
 }

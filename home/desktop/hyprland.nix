@@ -34,7 +34,7 @@
     exec-once = [
        "systemctl --user start hyprpolkitagent"
        #"nix run ~/nixos-config/home/desktop/astal/"
-       "waybar"
+       #"waybar"
     ];
     windowrulev2 = [
       "suppressevent maximize, class:.*"
