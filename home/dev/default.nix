@@ -1,5 +1,5 @@
 {
     imports = [
-        ./languages
+        ./languages.nix
     ];
 }

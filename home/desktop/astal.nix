@@ -1,4 +1,4 @@
 {inputs, system, ...}:
 {
-    home.packages = [inputs.astal.packages.${system}.default];
+    home.packages = with pkgs; [inputs.astal.packages.${system}.default];
 }

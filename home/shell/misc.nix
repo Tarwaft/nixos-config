@@ -1,6 +1,6 @@
 {pkgs, ...}:
 {
-    home.packages = with pkgs[
+    home.packages = (with pkgs; [
 
         fastfetch
         yazi
@@ -11,5 +11,5 @@
         p7zip
 
         fzf
-    ];
+    ]);
 }
