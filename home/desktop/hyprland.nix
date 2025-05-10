@@ -19,7 +19,7 @@
     "$menu" = "rofi -show drun";
     "$file" = "dolphin";
     "$browser" = "zen-twilight";
-    "$godot-steam" = "steam-run /home/tarwaft/godot-steam/godotsteam.multiplayer.441.editor.linux.x86_64";
+    "$godot-steam" = "steam-run /home/tarwaft/godot-steam/godotsteam.multiplayer.441.editor.linux.x86_64"; # this is temporary and not very declarative of me
 
     
     env = [

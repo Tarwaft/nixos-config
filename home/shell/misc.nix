@@ -11,5 +11,7 @@
         p7zip
 
         fzf
+
+        openssh
     ]);
 }

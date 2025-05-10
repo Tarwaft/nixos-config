@@ -6,5 +6,6 @@
         ./signal.nix
         ./vesktop.nix
         ./zen-browser.nix
+        ./ungoogled-chromium.nix
     ];
 }
