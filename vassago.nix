@@ -2,7 +2,7 @@
 {
     imports =
     [ # Include the results of the hardware scan.
-      ./vaddago-hardware.nix
+      ./vassago-hardware.nix
     ];
     networking.hostName = "vassago";
 }
