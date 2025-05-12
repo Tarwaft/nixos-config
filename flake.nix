@@ -47,12 +47,13 @@
       ];
     };
     
-    nixosConfigurations.paimon = {
-      nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations = {
+      paimon = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./paimon.nix
+          
           ./configuration.nix
+          ./paimon.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -68,8 +69,8 @@
       };
       
     };
-    nixosConfigurations.vassago = {
-      nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations = {
+      vassago = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./vassago.nix
