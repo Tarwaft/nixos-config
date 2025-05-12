@@ -42,16 +42,19 @@
         border-style: solid;
         padding-left: 10px;
         padding-right: 10px;
+        padding-top: 1px;
+        padding-bottom: 1px;
         margin-left: 20px;
         margin-right: 20px;
-        background: #16191C
+        background: #16191C;
+        margin: 3px 4px;
         }
 
         window#waybar {
         
         background: transparent;
         color:#ffffff;
-        margin: 3px 0px;
+        margin: 3px 4px;
         }
 
         #pulseaudio-slider {

@@ -115,6 +115,7 @@
         "$mod, G, exec, $godot-steam"
         "$mod, P, exec, hyprpicker -a"
         "$mod, S, exec, hyprshot -m region -z -o ~/Pictures/Screenshots"
+        "$mod, V, togglefloating"
 
         # move focus
         "$mod, l, movefocus, r"
