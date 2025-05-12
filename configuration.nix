@@ -5,16 +5,14 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -25,7 +23,6 @@
   networking.networkmanager.enable = true;
 
   security.polkit.enable = true;
-
 
 
   # Set your time zone.
@@ -101,15 +98,10 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
-	    neovim
-	    git
-	    vscode
-      ungoogled-chromium
-      openssh
+	    
     ];
   };
 
-  # Install firefox.
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
