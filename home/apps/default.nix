@@ -7,5 +7,6 @@
         ./vesktop.nix
         ./zen-browser.nix
         ./ungoogled-chromium.nix
+        ./obsidian.nix
     ];
 }
