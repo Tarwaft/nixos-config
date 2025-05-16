@@ -5,7 +5,8 @@
 { config, pkgs, inputs, ... }:
 
 {
-
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth cont
 
 
   # Bootloader.
