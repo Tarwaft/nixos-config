@@ -9,5 +9,6 @@
         ./ungoogled-chromium.nix
         ./obsidian.nix
         ./rnote.nix
+        ./misc.nix
     ];
 }
