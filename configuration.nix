@@ -8,6 +8,7 @@
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth cont
 
+  hardware.opentabletdriver.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
