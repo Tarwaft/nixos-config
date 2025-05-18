@@ -4,6 +4,8 @@
 
         fastfetch
 
+        killall
+
         zip
         xz
         unzip
