@@ -10,5 +10,6 @@
         ./obsidian.nix
         ./rnote.nix
         ./misc.nix
+        ./krita.nix
     ];
 }
