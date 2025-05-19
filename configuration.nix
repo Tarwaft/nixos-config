@@ -9,7 +9,7 @@
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth cont
 
   hardware.opentabletdriver.enable = true;
-
+  
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -119,6 +119,9 @@
 	  vscode
   ];
 
+  environment.systemPackages = [
+  inputs.lobster.packages.<architecture>.lobster
+];
 programs.steam = {
         enable = true;
         remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
