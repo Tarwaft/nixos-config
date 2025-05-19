@@ -3,8 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    inputs.lobster.url = "github:justchokingaround/lobster";
+    lobster = {
+      url = "github:justchokingaround/lobster";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     # temp until zen is officially added
     zen-browser = {
     url = "github:0xc000022070/zen-browser-flake";

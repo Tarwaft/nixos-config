@@ -1,8 +1,10 @@
-{pkgs, ...}:
+{pkgs, inputs, ...}:
 {
     home.packages = (with pkgs; [
-
+        inputs.lobster.packages.${system}.lobster
         fastfetch
+        ani-cli
+
 
         killall
 
@@ -12,6 +14,7 @@
         p7zip
 
         fzf
+        git
 
         openssh
     ]);

@@ -111,16 +111,12 @@
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # List packages installed in system profile. To search, run:
+  # List packages installed in system profile. To se arch, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-	  vscode
-  ];
 
-  environment.systemPackages = [
-  inputs.lobster.packages.<architecture>.lobster
+
+environment.systemPackages =  [
+  
 ];
 programs.steam = {
         enable = true;
@@ -129,7 +125,7 @@ programs.steam = {
         localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
     };
 
-  environment.variables.EDITOR = "neovim";
+  environment.variables.EDITOR = "nvim";
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
