@@ -1,4 +1,4 @@
 {pkgs, ...}:
 {
-    home.packages = (with pkgs; [blueman opentabletdriver]);
+    home.packages = (with pkgs; [blueman opentabletdriver mpv]);
 }
