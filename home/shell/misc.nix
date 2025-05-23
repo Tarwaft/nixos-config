@@ -4,7 +4,6 @@
         inputs.lobster.packages.${system}.lobster
         fastfetch
         ani-cli
-        mov-cli
         curl
 
 
