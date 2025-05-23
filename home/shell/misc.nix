@@ -1,8 +1,7 @@
-{pkgs, inputs, ...}:
+{pkgs, inputs, system,...}:
 {
     home.packages = (with pkgs; [
         inputs.lobster.packages.${system}.lobster
-        fastfetch
         ani-cli
         curl
 
