@@ -37,6 +37,13 @@
             key = "{$2}{#32}󰅐 uptime   ";
             type = "uptime";
         }
+         {
+            type = "disk";
+            keyIcon = "";
+            key = "{$2}{#magenta}{icon} OS Age   ";
+            folders = "/"; # On macOS, "/System/Volumes/VM" works for me
+            format = "{create-time:10} [{days} days]";
+        }
         {
             key = "{$2}{#33}{icon} distro   ";
             type = "os";
@@ -81,11 +88,11 @@
             #format = "{#1}{#keys}├{$1}{#1}{$1}{#3}{$3}";
             #type = "custom";
         #}
-        {
-            key = "{$2}{#39} colors   ";
-            type = "colors";
-            symbol = "circle";
-        }
+        #{
+            #key = "{$2}{#39} colors   ";
+            #type = "colors";
+            #symbol = "circle";
+        #}
         {
             format = "{#1}{#keys}╰{$1}{#1}{$1}{#1}{$1}╯";
             type = "custom";
