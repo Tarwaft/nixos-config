@@ -1,6 +1,6 @@
 {
     imports = [
-        #./fastfetch.nix
+        ./fastfetch.nix
         ./zoxide.nix
         ./bash.nix
         ./misc.nix
