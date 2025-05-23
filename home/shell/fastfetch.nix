@@ -5,7 +5,7 @@
             schema = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
             logo = {
         #type = "small";
-        source = "~/nixos-config/home/shell/assets/fastfetch-logo.png";
+        source = "~/nixos-config/home/shell/assets/fastfetch_logo.png";
         height = 11;
         padding = {
             top = 1;
