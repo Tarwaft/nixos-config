@@ -10,6 +10,7 @@
         padding = {
             top = 1;
             right = 2;
+            left = 2;
         };
     };
     display = {
