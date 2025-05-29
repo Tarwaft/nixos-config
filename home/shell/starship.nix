@@ -24,14 +24,14 @@
         color_black = "#000000";
         color_textblue = "#DDF3FE";
         color_lightblue = "#6da1a3";
+        color_newline = "A1CEEF";
       };
 
       os = {
         disabled = false;
         style = "bg:color_bg4 fg:color_black";
         symbols = {
-          Linux = "󰌽";
-          Artix = "󰣇";
+          #NixOS= "󱄅";
         };
       };
 
@@ -156,8 +156,8 @@
 
       character = {
         disabled = false;
-        success_symbol = "[](bold fg:color_green)";
-        error_symbol = "[](bold fg:color_red)";
+        success_symbol = "[ 󰋙󰁕](bold fg:color_bg4)";
+        error_symbol = "[ 󰋙󰁕](bold fg:color_red)";
         vimcmd_symbol = "[](bold fg:color_green)";
         vimcmd_replace_one_symbol = "[](bold fg:color_purple)";
         vimcmd_replace_symbol = "[](bold fg:color_purple)";
