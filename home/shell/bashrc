@@ -5,4 +5,4 @@ COLOR_CYAN='\e[0;36m'
 COLOR_BLUE='\e[0;34m'
 COLOR_NONE='\e[0m' # Resets color
 #PS1="${COLOR_GREEN}\u${COLOR_NONE}@${COLOR_CYAN}\h${COLOR_NONE}:${COLOR_BLUE}\w${COLOR_NONE}\$ "
-eval "$(starship init bash)"
+#eval "$(starship init bash)"
