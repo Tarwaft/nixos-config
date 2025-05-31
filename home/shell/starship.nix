@@ -19,11 +19,13 @@
         color_purple = "#b16286";
         color_red = "#cc241d";
         color_bg4 = "#71859b";
+        #color_bg4 = "#7EBAE4";
         color_yellow = "#d79921";
         color_white = "#FFFFFF";
         color_black = "#000000";
         color_textblue = "#DDF3FE";
         color_lightblue = "#6da1a3";
+        #color_lightblue = "#7EBAE4";
         color_newline = "A1CEEF";
       };
 

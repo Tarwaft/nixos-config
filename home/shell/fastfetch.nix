@@ -17,6 +17,8 @@
         separator = ">  ";
         color = {
             separator = "red";
+            keys = "#5277C3";
+            #keys = "#7EBAE4";
         };
         constants = [
             "─────────────────────────"
