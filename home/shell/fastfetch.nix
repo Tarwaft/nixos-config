@@ -5,7 +5,7 @@
             schema = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
             logo = {
         #type = "small";
-        source = "~/nixos-config/home/shell/assets/fastfetch_logo.png";
+        source = "~/nixos-config/home/shell/assets/fastfetch_logo_muted_colours.png";
         height = 11;
         padding = {
             top = 1;
@@ -16,9 +16,9 @@
     display = {
         separator = ">  ";
         color = {
-            separator = "red";
-            keys = "#5277C3";
-            #keys = "#7EBAE4";
+            #separator = "red";
+            seperator = "#71859B";
+            keys = "#6DA1A3";
         };
         constants = [
             "─────────────────────────"
@@ -28,7 +28,7 @@
     };
     modules = [
         {
-            format = "{#keys}╭{$1}{user-name-colored}{at-symbol-colored}{host-name-colored}";
+            format = "{#keys}╭{$1}{#keys}{user-name-colored}{at-symbol-colored}{host-name-colored}";
             type = "title";
         }
         {
