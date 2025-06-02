@@ -8,7 +8,7 @@
   };
 
 
-  home.packages = (with pkgs; [ hyprpolkitagent playerctl hyprpicker hyprshot]);
+  home.packages = (with pkgs; [ hyprpolkitagent playerctl hyprpicker hyprshot pavucontrol]);
   services.playerctld.enable = true;
 
   wayland.windowManager.hyprland.systemd.variables = ["--all"];
@@ -48,9 +48,9 @@
   
 
     monitor = [
-      "HDMI-A-1,2560x1440@60,0x0,1"
-      "DP-1,2560x1440@165,2560x0,1"
-      "eDPI-1,1920x1200@60,0x0,1"
+      #"HDMI-A-1,2560x1440@60,0x0,1"
+      #"DP-1,2560x1440@165,2560x0,1"
+      #"eDPI-1,1920x1200@60,0x0,1"
       " , preferred, auto, 1"
     ];
 
