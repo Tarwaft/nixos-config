@@ -21,5 +21,6 @@
         fzf
         git
         openssh
+        ffmpeg
     ]);
 }
