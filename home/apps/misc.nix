@@ -1,4 +1,4 @@
 {pkgs, ...}:
 {
-    home.packages = (with pkgs; [blueman opentabletdriver mpv pavucontrol]);
+    home.packages = (with pkgs; [blueman opentabletdriver mpv pavucontrol inkscape]);
 }
