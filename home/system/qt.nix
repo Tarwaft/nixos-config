@@ -10,8 +10,8 @@
     ];
     qt = {
         enable = true;
-        platformTheme.name = "qtct";
+        platformTheme.name = "gnome";
         style.name = "adwaita-dark";
-        #style.package = pkgs.adwaita-qt;
+        #style.package = pkgs.breeze-qt5;
     };
 }

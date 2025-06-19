@@ -13,6 +13,7 @@
     defaultApplications = {
       "x-scheme-handler/https" = ["zen-twilight.desktop"];
       "x-scheme-handler/http" = ["zen-twilight.desktop"];
+      "image/png" = ["eog.desktop"];
     };
   };
 
