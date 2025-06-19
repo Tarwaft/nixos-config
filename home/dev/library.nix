@@ -1,4 +1,4 @@
 {pkgs,...}:
 {
-    home.packages = (with pkgs; [sdl3]);
+    home.packages = (with pkgs; []);
 }
