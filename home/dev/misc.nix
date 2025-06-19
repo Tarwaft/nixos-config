@@ -1,4 +1,4 @@
 {pkgs,...}:
 {
-    home.packages = (with pkgs; [direnv nix-direnv]);
+    home.packages = (with pkgs; []);
 }
