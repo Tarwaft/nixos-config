@@ -107,7 +107,11 @@
 	    
     ];
   };
-
+  nix.gc = {
+    automatic = true;
+    dates = "daily"; # or "weekly", depending on how often you want it to run
+    options = "--delete-older-than 28d";
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -147,7 +151,7 @@ programs.steam = {
   # networking.firewall.allowedTCPPorts = [ ... ];
    #networking.firewall.allowedUDPPorts = [8890];
   # Or disable the firewall altogether.
-   networking.firewall.enable = false;
+   networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
