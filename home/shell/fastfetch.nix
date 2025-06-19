@@ -6,7 +6,7 @@
             logo = {
         #type = "small";
         source = "~/nixos-config/home/shell/assets/fastfetch_logo_muted_colours.png";
-        height = 11;
+        height = 10;
         padding = {
             top = 1;
             right = 2;
@@ -39,13 +39,13 @@
             key = "{$2}{#32}󰅐 uptime   ";
             type = "uptime";
         }
-         {
-            type = "disk";
-            keyIcon = "";
-            key = "{$2}{#magenta}{icon} OS Age   ";
-            folders = "/"; # On macOS, "/System/Volumes/VM" works for me
-            format = "{create-time:10} [{days} days]";
-        }
+#         {
+#            type = "disk";
+#            keyIcon = "";
+#            key = "{$2}{#magenta}{icon} OS Age   ";
+#            folders = "/"; # On macOS, "/System/Volumes/VM" works for me
+#            format = "{create-time:10} [{days} days]";
+#        }
         {
             key = "{$2}{#33}{icon} distro   ";
             type = "os";
