@@ -1,5 +1,5 @@
 alias nrs='sudo nixos-rebuild switch --flake ~/nixos-config/'
-fastfetch
+#fastfetch
 
 cd() {
   echo "use z instead!"
