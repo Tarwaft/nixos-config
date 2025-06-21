@@ -1,7 +1,7 @@
 {pkgs, inputs, system,...}:
 {
     home.packages = (with pkgs; [
-
+        btop
 
         # movies
         inputs.lobster.packages.${system}.lobster
