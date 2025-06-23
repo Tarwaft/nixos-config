@@ -11,5 +11,6 @@
         ./rnote.nix
         ./misc.nix
         ./krita.nix
+        ./blender.nix
     ];
 }
