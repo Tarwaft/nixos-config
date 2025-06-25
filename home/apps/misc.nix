@@ -7,5 +7,8 @@
         pavucontrol 
         inkscape 
         eog 
+        mixxx
+        audacity
+        audacious
     ]);
 }
