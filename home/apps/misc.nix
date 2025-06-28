@@ -10,5 +10,6 @@
         mixxx
         audacity
         audacious
+        orca-slicer
     ]);
 }
