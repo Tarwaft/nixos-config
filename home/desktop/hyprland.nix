@@ -55,7 +55,7 @@
     ];
 
     input = {
-      kb_layout = "de";
+      kb_layout = "eu";
       follow_mouse = 1;
       accel_profile = "flat";
       sensitivity = 0;
