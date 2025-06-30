@@ -11,5 +11,6 @@
         audacity
         audacious
         orca-slicer
+        kicad
     ]);
 }
