@@ -12,5 +12,7 @@
         audacious
         orca-slicer
         kicad
+        libreoffice-still
+        anki-bin
     ]);
 }
