@@ -14,5 +14,8 @@
         kicad
         libreoffice-still
         anki-bin
+
+        jellyfin
+        prismlauncher
     ]);
 }
