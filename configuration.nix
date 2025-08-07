@@ -5,6 +5,14 @@
 { config, pkgs, inputs, ... }:
 
 {
+  # TEMP for insecure packages that are needed
+  #TODO check if it can be removed
+  nixpkgs.config.permittedInsecurePackages = [
+    "libsoup-2.74.3"
+  ];
+
+
+
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth cont
 
