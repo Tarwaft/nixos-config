@@ -15,7 +15,10 @@
         libreoffice-still
         anki-bin
 
+        vlc
         jellyfin
+        jellyfin-web
         prismlauncher
+        spotify
     ]);
 }
