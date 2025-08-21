@@ -14,6 +14,7 @@
         kicad
         libreoffice-still
         anki-bin
+        arduino
 
         vlc
         jellyfin
