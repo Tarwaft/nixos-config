@@ -21,5 +21,9 @@
         jellyfin-web
         prismlauncher
         spotify
+        
     ]);
+    
+    
+
 }

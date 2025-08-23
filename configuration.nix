@@ -130,6 +130,8 @@
   # List packages installed in system profile. To se arch, run:
   # $ nix search wget
 
+services.jellyfin.enable = true;
+services.jellyfin.user = "paimon";
 
 environment.systemPackages =  [
   
@@ -160,6 +162,8 @@ programs.steam = {
    #networking.firewall.allowedUDPPorts = [8890];
   # Or disable the firewall altogether.
    networking.firewall.enable = true;
+
+   networking.firewall.allowedTCPPorts = [ 8096 ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
