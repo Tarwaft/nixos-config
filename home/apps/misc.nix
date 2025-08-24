@@ -21,7 +21,6 @@
         jellyfin-web
         prismlauncher
         spotify
-        vlc
         
     ]);
     
