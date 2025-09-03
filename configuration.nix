@@ -130,12 +130,10 @@
   # List packages installed in system profile. To se arch, run:
   # $ nix search wget
 
-services.jellyfin.enable = true;
-services.jellyfin.user = "paimon";
+#services.jellyfin.enable = true;
+#services.jellyfin.user = "paimon";
 
-environment.systemPackages =  [
-  
-];
+
 programs.steam = {
         enable = true;
         remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -144,6 +142,44 @@ programs.steam = {
     };
 
   environment.variables.EDITOR = "nvim";
+
+### VIRTUAL MACHINE START
+
+# Set up virtualisation
+virtualisation.libvirtd = {
+    enable = true;
+
+    # Enable TPM emulation (for Windows 11)
+    qemu = {
+      swtpm.enable = true;
+      ovmf.packages = [ pkgs.OVMFFull.fd ];
+    };
+  };
+
+  # Enable USB redirection
+  virtualisation.spiceUSBRedirection.enable = true;
+
+
+# Allow VM management
+users.groups.libvirtd.members = [ "tarwaft" ];
+users.groups.kvm.members = [ "tarwaft" ];
+
+# Enable VM networking and file sharing
+environment.systemPackages = with pkgs; [
+    # ... your other packages ...
+    gnome-boxes # VM management
+    dnsmasq # VM networking
+    phodav # (optional) Share files with guest VMs
+];
+
+## The guide is here: https://crescentro.se/posts/windows-vm-nixos/
+## if nixos is fucked go there for advice. HTML is in guides as virtualmachine 
+## if the website is down
+
+### VIRTUAL MACHINE END
+
+
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>
+      
+The least painful way to set up a Windows VM on NixOS // crescentro.se
+
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css" media="(prefers-color-scheme: dark)" />
+    <link rel="stylesheet" type="text/css" href="/syntax-theme-light.css" media="(prefers-color-scheme: light)" />
+    <link rel="stylesheet" href="/style.css?v=1750108909" />
+
+    <link rel="icon" href="/favicon.ico" sizes="16x16">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+
+    <link rel="alternate" type="application/atom+xml" title="crescentro.se - all posts (Atom)" href="https://crescentro.se/posts/atom.xml" />
+    <link rel="alternate" type="application/rss+xml" title="crescentro.se - all posts (RSS)" href="https://crescentro.se/posts/rss.xml" />
+
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#eff1f5" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1e1e2e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+<meta property="og:title" content="The least painful way to set up a Windows VM on NixOS" />
+<meta property="og:type" content="article" />
+
+<meta property="article:author" content="crescentrose" />
+
+<meta property="og:description" content="Setting up a Windows VM sounds like one of more straightforward tasks. Unfortunately, Microsoft&#x27;s recent enshittification made it far more difficult than it needs to be." />
+
+
+    
+
+
+
+
+
+
+
+<meta property="og:image" content="https://crescentro.se/posts/windows-vm-nixos/preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image&#x2F;png" />
+<meta property="og:image:alt" content="Preview of an article: The least painful way to set up a Windows VM on NixOS" />
+
+
+  </head>
+
+  <body>
+    <a id="top"></a>
+    
+<div class="container">
+  <nav>
+    <a class="brand link--reset" href="/">
+      <img
+          src="/icon@2x.png"
+          class="brand--logo"
+          alt="logo - a little silhouette of a black cat"
+          srcset="/icon@1x.png 20w, /icon@2x.png 40w"
+          sizes="(min-width: 50em) 40px, 20px"
+        />
+      <div class="brand--link">crescentrose</div>
+    </a>
+    <div class="spacer"></div>
+  </nav>
+  <main>
+    
+<article class="h-entry">
+  <header>
+    <h1 class="p-name">
+      The least painful way to set up a Windows VM on NixOS
+    </h1>
+
+    <div class="subheader">
+      
+      
+      
+      
+      
+      
+      <a class="badge bright p-category link--reset" href="/posts">Musings</a>
+      <span>&#47;&#47;</span>
+      <time class="dt-published">2025-06-16</time>
+      <span>&#47;&#47;</span>
+      <span><a href="https:&#x2F;&#x2F;crescentro.se&#x2F;posts&#x2F;windows-vm-nixos&#x2F;" class="u-url">Permalink</a></span>
+    </div>
+  </header>
+
+  <div class="e-content">
+  <p>A couple of months ago I bought the <a href="https://nanoleaf.me/en-EU/products/pegboard-desk-dock/?size=1">Nanoleaf Pegboard Desk Dock</a>, the latest and greatest in USB-hub-with-RGB-LEDs-and-hooks-for-gadgets technology. This invention unfortunately only supports the <em>real gamer</em> operating systems of Windows and macOS, which necessitated the development of a Linux driver.</p>
+<p>The first step on this journey is to set up a Windows VM, on which I can install drivers and pass the device through to it for reverse-engineering. Sounds simple! But there are plenty of things that can and will go wrong in the process.</p>
+<hr />
+<p>There are plenty of ways you could approach this problem. You could rawdog <a href="https://wiki.archlinux.org/title/QEMU#Creating_a_new_virtualized_system"><code>qemu</code> commands</a>. You could go one layer above, and rawdog <a href="https://wiki.archlinux.org/title/Libvirt"><code>libvirt</code> commands</a>. However, we will soon have our hands full with Windows, so my honest suggestion is to just use <a href="https://apps.gnome.org/Boxes/">GNOME Boxes</a>, a lightweight wrapper around <code>libvirt</code>. Boxes comes with built-in support for USB forwarding, so you can just plug in a USB device into your computer and forward it directly to the guest OS. It’s not as fancy and full-featured as <a href="https://virt-manager.org/"><code>virt-manager</code></a>, but the less it gets in my way, the better.</p>
+<h2 id="setting-up-gnome-boxes-on-nixos">Setting up GNOME Boxes on NixOS</h2>
+<p>Add the following to your <code>configuration.nix</code> and rebuild:</p>
+<pre data-lang="nix" class="language-nix z-code"><code class="language-nix" data-lang="nix"><span class="z-source z-nix"><span class="z-comment z-line z-number-sign z-nix"># Set up virtualisation</span>
+</span><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">virtualisation</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">libvirtd</span> <span class="z-invalid z-illegal">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">enable</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-constant z-language z-nix">true</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">
+</span><span class="z-source z-nix">    <span class="z-comment z-line z-number-sign z-nix"># Enable TPM emulation (for Windows 11)</span>
+</span><span class="z-source z-nix">    <span class="z-entity z-other z-attribute-name z-multipart z-nix">qemu</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-attrset-or-function z-nix">{</span>
+</span><span class="z-source z-nix">      <span class="z-entity z-other z-attribute-name z-multipart z-nix">swtpm</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">enable</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-constant z-language z-nix">true</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">      <span class="z-entity z-other z-attribute-name z-multipart z-nix">ovmf</span>.<span class="z-entity z-other z-attribute-name z-multipart z-nix">packages</span> <span class="z-keyword z-operator z-bind z-nix">=</span> <span class="z-punctuation z-definition z-list z-nix">[</span> <span class="z-variable z-parameter z-name z-nix">pkgs</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">OVMFFull</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">fd</span> <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">    <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-punctuation z-terminator z-bind z-nix">;</span>
+</span><span class="z-source z-nix">  <span class="z-punctuation z-definition z-attrset z-nix">}</span><span class="z-invalid z-illegal">;</span>
+</span><span class="z-source z-nix">
+</span><span class="z-source z-nix">  <span class="z-comment z-line z-number-sign z-nix"># Enable USB redirection</span>
+</span><span class="z-source z-nix">  <span class="z-variable z-parameter z-name z-nix">virtualisation</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">spiceUSBRedirection</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">enable</span> <span class="z-invalid z-illegal">=</span> <span class="z-constant z-language z-nix">true</span><span class="z-invalid z-illegal">;</span>
+</span><span class="z-source z-nix"><span class="z-invalid z-illegal">}</span>
+</span><span class="z-source z-nix">
+</span><span class="z-source z-nix"><span class="z-comment z-line z-number-sign z-nix"># Allow VM management</span>
+</span><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">users</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">groups</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">libvirtd</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">members</span> <span class="z-invalid z-illegal">=</span> <span class="z-punctuation z-definition z-list z-nix">[</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>your-account-here<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-invalid z-illegal">;</span>
+</span><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">users</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">groups</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">kvm</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">members</span> <span class="z-invalid z-illegal">=</span> <span class="z-punctuation z-definition z-list z-nix">[</span> <span class="z-string z-quoted z-double z-nix"><span class="z-punctuation z-definition z-string z-double z-start z-nix">&quot;</span>your-account-here<span class="z-punctuation z-definition z-string z-double z-end z-nix">&quot;</span></span> <span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-invalid z-illegal">;</span>
+</span><span class="z-source z-nix">
+</span><span class="z-source z-nix"><span class="z-comment z-line z-number-sign z-nix"># Enable VM networking and file sharing</span>
+</span><span class="z-source z-nix"><span class="z-variable z-parameter z-name z-nix">environment</span><span class="z-keyword z-operator z-nix">.</span><span class="z-variable z-parameter z-name z-nix">systemPackages</span> <span class="z-invalid z-illegal">=</span> <span class="z-invalid z-illegal z-reserved z-nix">with</span> <span class="z-variable z-parameter z-name z-nix">pkgs</span><span class="z-invalid z-illegal">;</span> <span class="z-punctuation z-definition z-list z-nix">[</span>
+</span><span class="z-source z-nix">    <span class="z-comment z-line z-number-sign z-nix"># ... your other packages ...</span>
+</span><span class="z-source z-nix">    <span class="z-variable z-parameter z-name z-nix">gnome-boxes</span> <span class="z-comment z-line z-number-sign z-nix"># VM management</span>
+</span><span class="z-source z-nix">    <span class="z-variable z-parameter z-name z-nix">dnsmasq</span> <span class="z-comment z-line z-number-sign z-nix"># VM networking</span>
+</span><span class="z-source z-nix">    <span class="z-variable z-parameter z-name z-nix">phodav</span> <span class="z-comment z-line z-number-sign z-nix"># (optional) Share files with guest VMs</span>
+</span><span class="z-source z-nix"><span class="z-punctuation z-definition z-list z-nix">]</span><span class="z-invalid z-illegal">;</span>
+</span></code></pre>
+<p>You might need to log out and log back in to your system for the group changes to take effect. You can also install <code>gnome-boxes</code> using <code>home-manager</code>, and it will work fine, but the rest of the setup needs to be global.</p>
+<h2 id="acquire-the-iso">Acquire the ISO</h2>
+<p>In the current year, you do not need to purchase Windows to legally acquire a copy of the OS. You can grab an ISO <a href="https://www.microsoft.com/en-us/software-download/windows11">directly from Microsoft</a>.</p>
+<p>… Allegedly. This link did not work for me in Firefox. Your mileage my vary.</p>
+<h2 id="defining-the-vm">Defining the VM</h2>
+<p>GNOME Boxes is very down-to-earth about this: click the little “plus” icon in the top left corner, “Install from File”, point it to the ISO and select “Microsoft Windows 11” as the operating system, define the memory and the disk space you want to give it, and that’s it!</p>
+<picture>
+  
+  
+  
+  <source srcset="/posts&#x2F;windows-vm-nixos&#x2F;setup.light.png" media="(prefers-color-scheme: light)" />
+  <source srcset="/posts&#x2F;windows-vm-nixos&#x2F;setup.dark.png" media="(prefers-color-scheme: dark)" />
+  <img src="/posts&#x2F;windows-vm-nixos&#x2F;setup.light.png" alt="A screenshot of GNOME Boxes showing the New Virtual Machine dialog box" />
+</picture>
+<p><strong>Remember to give Windows a LOT of resources!</strong> I originally started with a 20 GB virtual disk but had to bump this up all the way to 50 GB because I kept running out of space despite only ever installing two apps that were under 1 GB in size. This is probably because as soon as I completed the setup the OS started showing me a bunch of news from US politics, Copilot chat boxes, MS Teams and ads. It is also <strong>very difficult</strong> to grow the partition once you’ve defined it for reasons I’ll get to later. Just give it at least 40 GB, and more if you want to do anything remotely productive with it.</p>
+<h2 id="setting-up-a-windows-vm-without-microsoft-account-requirement">Setting up a Windows VM without Microsoft account requirement</h2>
+<p>Setting up a Windows VM unfortunately means setting up Windows, which is an experience about as enjoyable as your visit to the dentist in five years.</p>
+<p>Because you are setting up a VM, you probably don’t want to be bothered with a Microsoft account, which Windows will try to force upon you. This is where you need to rely on folk wisdom:</p>
+<ol>
+<li><strong>Before you click on anything</strong> after the first boot, hit <code>Shift + F10</code>, which will bring up the command prompt. Type <code>reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE /v BypassNRO /t REG_DWORD /d 1 /f</code>, which does what the now-defunct <code>OOBE\BYPASSNRO</code> command did. Restart the machine with <code>shutdown /r /t 0</code>.</li>
+<li>Again <strong>before you click on anything after the next reboot</strong>, hit <code>Shift+F10</code> and run <code>ipconfig /release</code> to force the network adapter to drop its IP address, thus disconnecting you from the internet.</li>
+<li>Proceed with the set-up, and there will be an “I don’t have internet” option, which you will have to confirm a couple of times through increasingly pushy prompts because <a href="https://soatok.blog/2024/02/27/the-tech-industry-doesnt-understand-consent/">the tech industry does not understand consent</a>.</li>
+</ol>
+<p>After you completed the initial setup, you can run <code>ipconfig /renew</code> to get internet access back. Microsoft is constantly working hard to make the Windows experience as shitty as they possibly can, so this might or might not work in the future.</p>
+<p>If you look around, you can find “debloat scripts” and dozens of commands that you could run in the Windows terminal to manually delete some of these things. Debloat scripts, weird undocumented registry hacks ran through exploits at the setup screen, and obscure terminal commands are routinely evangelized by Windows fanatics who claim that Linux is too complicated because the Bash shell exists. Oh well.</p>
+<h2 id="grow-the-windows-primary-partition-in-spite-of-the-recovery-partition">Grow the Windows primary partition in spite of the recovery partition</h2>
+<p>Growing the Windows primary partition is impossible without hacks because Microsoft places a “Recovery” partition at the <strong>end</strong> of the disk instead of at the start, thus preventing the primary partition (<code>C:</code>) from growing.</p>
+<p>If you are here because you somehow found this on Google: this is about setting up a VM, and you should <strong>not delete your Recovery partition if you’re not using a VM</strong>.</p>
+<p>Shut down the VM, increase the size of its disk through the “Preferences” panel, then start it again. Then, do the following:</p>
+<ol>
+<li>Make a snapshot of the VM. You can do this from the “three-dot” menu, go to “Preferences”, then “Snapshots” and create a new one. This is now your recovery partition!</li>
+<li>Open a Command Prompt with admin permissions. Run <code>bcdedit /enum all</code> to get a list of all boot entries. Find the <code>Windows Boot Loader</code> entry that has a description of <code>Windows Recovery Environment</code> and copy its <code>identifier</code> (it looks like a UUID).</li>
+<li>Delete it! <code>bcdedit /delete {the-identifier-from-previous-step} /cleanup</code>.</li>
+<li>This should automatically turn off the recovery agent, but you can verify that with <code>reagentc /disable</code>.</li>
+<li>Now you can use <code>diskpart</code> to delete the partition itself:
+<ol>
+<li>run <code>diskpart</code></li>
+<li>in the diskpart prompt, run <code>sel disk 0</code> to select the first (and, hopefully, only disk. You’re not doing this on your real machine, right?)</li>
+<li>run <code>list part</code> to find the ID of the <code>Recovery</code> partition - for me it was <code>4</code>. Select it with <code>select partition &lt;id&gt;</code>.</li>
+<li>drop it with <code>delete partition override</code></li>
+</ol>
+</li>
+</ol>
+<p>Finally, you can use the visual partition manager (search for “create and format hard disk partitions” in the Start menu), or stay in <code>diskpart</code> if you’re a badass, to grow the primary partition.</p>
+<h2 id="setting-up-guest-tools-on-the-windows-vm">Setting up “guest tools” on the Windows VM</h2>
+<p>This is a minor thing that will make your Windows VM experience marginally less painful. In the VM, you will want to download the <a href="https://www.spice-space.org/download.html#windows-binaries">SPICE guest tools</a> - click on the first link (<code>spice-guest-tools</code>) to get the .exe, then set it up and reboot the machine. You’ll then be able to easily resize the VM, share the clipboard, and a couple of other minor quality-of-life improvements.</p>
+<p>This step is completely optional, but the more you use the VM, the more you’ll appreciate it.</p>
+<h2 id="the-nixos-special-un-fucking-your-vm-after-running-garbage-collection">The NixOS Special: Un-fucking your VM after running garbage collection</h2>
+<p>When you set up the VM for the first time, it will reference an <code>edk2</code> image, which is an UEFI implementation by Intel. Unfortunately, this file lives in <code>/nix/store</code>, which means it will get deleted the next time you upgrade <code>qemu</code> and run garbage collection. This is <a href="https://dwarffortresswiki.org/index.php/DF2014:Losing">Fun</a>.</p>
+<p>The easiest workaround for this is to get the current path to <code>qemu</code>:</p>
+<pre class="z-code"><code><span class="z-text z-plain">$ nix eval nixpkgs#qemu.outPath
+</span><span class="z-text z-plain">&quot;/nix/store/c62kwi025305f0azsmh7v08qwvibw3bv-qemu-9.2.3&quot;
+</span></code></pre>
+<p>then find the name of the VM with <code>virsh</code>:</p>
+<pre class="z-code"><code><span class="z-text z-plain">$ virsh list --all
+</span><span class="z-text z-plain"> Id   Name    State
+</span><span class="z-text z-plain">-----------------------
+</span><span class="z-text z-plain"> -    win11   shut off
+</span></code></pre>
+<p>then edit the definition with <code>virsh edit &lt;name&gt;</code>, locate the <code>&lt;os firmware='efi'&gt;</code> block, and replace the outdated references with the new path you discovered by running <code>nix eval</code>.</p>
+<p>I am sure there is a better, more permanent way to do this, but it probably involves writing a custom derivation for your VM’s config file and, like… okay. Sure. Do that if you really want to.</p>
+<h2 id="stop-the-vm-from-auto-starting-at-boot">Stop the VM from auto-starting at boot</h2>
+<p>At least on my machine, the Windows VM would start up automatically every time I rebooted my computer. The way I discovered this was by the VM suddenly eating up half of my system’s resources while I was in the middle of a competitive Overwatch 2 game.</p>
+<p>Make sure to stop it from doing that by right clicking on it in Boxes, going to “Preferences” and disabling the “run in background” option.</p>
+
+  </div>
+</article>
+
+<footer>
+  <a href="#top">↑ back to top</a>
+</footer>
+
+  </main>
+</div>
+
+  </body>
+
+  <script src="/js/application.js"></script>
+
+  <!-- Unobtrusive, private analytics powered by goatcounter.com. Does not track users, store
+    cookies or persist any data. -->
+  <script data-goatcounter="https://crescentrose.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</html>

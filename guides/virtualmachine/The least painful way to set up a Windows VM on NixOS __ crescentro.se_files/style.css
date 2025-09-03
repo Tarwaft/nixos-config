@@ -1,0 +1,106 @@
+@import './css/reset.css' layer(reset);
+@import './css/colors.css' layer(colors);
+@import './css/base.css' layer(base);
+@import './css/components.css' layer(components);
+
+@layer reset, colors, base, components;
+
+/* Definitions */
+@font-face {
+  font-family: "Departure Mono";
+  src:
+    local("Departure Mono"),
+    url("/fonts/DepartureMono-Regular.otf") format("opentype"),
+    url("/fonts/DepartureMono-Regular.woff") format("woff"),
+    url("/fonts/DepartureMono-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Iosevka Extended";
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+  src:
+    url("/fonts/IosevkaSS15-Extended.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Iosevka Extended";
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+  src:
+    url("/fonts/IosevkaSS15-ExtendedBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Iosevka Extended";
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
+  src:
+    url("/fonts/IosevkaSS15-ExtendedItalic.woff2") format("woff2");
+}
+
+:root {
+  --font-family-primary: "Iosevka Extended";
+  --font-family-heading: "Departure Mono";
+  --font-family-code: "Iosevka Extended";
+  --font-family-brand: "Departure Mono";
+
+  --font-size-base: 16.5px;
+  --font-size-50: 11px;
+  --font-size-100: calc(var(--font-size-base) * 1);
+  --font-size-150: calc(var(--font-size-base) * 1.25);
+  --font-size-200: calc(var(--font-size-base) * 1.5);
+  --font-size-300: calc(var(--font-size-base) * 2);
+  --font-size-400: calc(var(--font-size-base) * 3);
+
+  --spacing-25: 0.25rem;
+  --spacing-50: 0.5rem;
+  --spacing-100: 1rem;
+  --spacing-150: 1.5rem;
+  --spacing-200: 2rem;
+  --spacing-400: 4rem;
+
+  --content-width: 60em;
+  --card-width: 15em;
+  --footnote-border-length: 10em;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+/* Animations */
+@media not (prefers-reduced-motion) {
+  .brand--logo {
+    view-transition-name: logo;
+  }
+
+  .brand--link {
+    view-transition-name: name;
+  }
+
+  details summary::before {
+    transition: transform 0.1s ease-in-out;
+  }
+
+  body {
+    scroll-behavior: smooth;
+  }
+
+  @keyframes color-rotation {
+    from {
+      background-position-x: 0;
+    }
+
+    to {
+      background-position-x: var(--funky-gradient-size);
+    }
+  }
+
+  mark.funky {
+    animation: 1.5s linear infinite color-rotation;
+  }
+}
