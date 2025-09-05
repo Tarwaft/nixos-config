@@ -21,6 +21,7 @@
         jellyfin-web
         prismlauncher
         spotify
+        ungoogled-chromium
         
     ]);
     

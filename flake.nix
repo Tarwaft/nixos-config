@@ -58,6 +58,7 @@
           
           ./configuration.nix
           ./paimon.nix
+          ./vm.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
