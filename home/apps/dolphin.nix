@@ -1,4 +1,4 @@
 {pkgs, ...}:
 {
-    home.packages = (with pkgs; [libsForQt5.dolphin libsForQt5.konsole]);
+    home.packages = (with pkgs; [kdePackages.dolphin kdePackages.konsole]);
 }
