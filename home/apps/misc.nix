@@ -22,6 +22,7 @@
         prismlauncher
         spotify
         ungoogled-chromium
+        xournalpp
         
     ]);
     
