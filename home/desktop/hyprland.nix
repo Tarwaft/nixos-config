@@ -34,7 +34,7 @@
     exec-once = [
        "systemctl --user start hyprpolkitagent"
        #"nix run ~/nixos-config/home/desktop/astal/"
-       #"waybar"
+       "waybar"
     ];
     windowrulev2 = [
       "suppressevent maximize, class:.*"
@@ -48,9 +48,9 @@
   
 
     monitor = [
-      "HDMI-A-1,2560x1440,0x0,1"
-      "DP-1,2560x1440@165,2560x0,1"
-      #"eDPI-1,1920x1200@60,0x0,1"
+      #"HDMI-A-1,2560x1440,0x0,1"
+      #"DP-1,2560x1440@165,2560x0,1"
+      #"eDPI-1,1920x1200@60.00Hz,0x0,1"
       " , preferred, auto, 1"
     ];
 
