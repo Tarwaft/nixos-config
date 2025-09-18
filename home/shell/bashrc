@@ -1,3 +1,4 @@
 alias nrs='sudo nixos-rebuild switch --flake ~/nixos-config/'
 #fastfetch
+alias please='sudo'
 

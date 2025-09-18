@@ -23,6 +23,8 @@
         spotify
         ungoogled-chromium
         xournalpp
+
+        jetbrains-toolbox
         
     ]);
     
