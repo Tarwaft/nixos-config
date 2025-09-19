@@ -79,9 +79,9 @@
       };
     };
 
-    gestures = {
-      workspace_swipe = "on";
-    };
+    gesture = [
+      "3, vertical, workspace"
+    ];
 
     animations = {
       enabled = "yes";
