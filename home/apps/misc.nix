@@ -26,6 +26,7 @@
 
         jetbrains-toolbox
         oversteer
+        obs-studio
     ]);
     
     
