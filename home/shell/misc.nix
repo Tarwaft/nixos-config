@@ -22,5 +22,6 @@
         git
         openssh
         ffmpeg
+        usbutils
     ]);
 }

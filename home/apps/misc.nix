@@ -25,7 +25,7 @@
         xournalpp
 
         jetbrains-toolbox
-        
+        oversteer
     ]);
     
     
