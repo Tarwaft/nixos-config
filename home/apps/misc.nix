@@ -1,6 +1,7 @@
 {pkgs, ...}:
 {
     home.packages = (with pkgs; [
+        linuxConsoleTools
         blueman 
         opentabletdriver 
         mpv 
@@ -27,6 +28,10 @@
         jetbrains-toolbox
         oversteer
         obs-studio
+        evtest
+        usbview
+        protonplus
+
     ]);
     
     

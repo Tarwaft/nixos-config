@@ -1,4 +1,4 @@
 {pkgs,...}:
 {
-    home.packages = (with pkgs; [jdk stockfish cutechess]);
+    home.packages = (with pkgs; [jdk stockfish cutechess protontricks wget wget2]);
 }

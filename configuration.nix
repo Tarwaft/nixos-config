@@ -23,6 +23,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelModules = [ "hid_logitech" "hid_logitech_hidpp" ];
 
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -75,6 +76,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.flatpak.enable = true;
 
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
@@ -115,7 +117,7 @@ nix.settings = {
   users.users.tarwaft = {
     isNormalUser = true;
     description = "Joshua David Conradi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
     #  thunderbird
 	    
@@ -126,6 +128,38 @@ nix.settings = {
     dates = "daily"; # or "weekly", depending on how often you want it to run
     options = "--delete-older-than 28d";
   };
+
+
+  services.udev.packages = with pkgs; [
+    usb-modeswitch # Make sure the tool is available
+    oversteer
+    logitech-udev-rules
+  ];
+  services.udev.extraRules = ''
+  # Automatically switch G920 from Xbox to HID mode
+  ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c261", \
+    RUN+="${pkgs.usb-modeswitch}/bin/usb_modeswitch -v 046d -p c261 -m 01 -r 01 -C 03 -M '0f00010142'"
+
+  # Ensure Oversteer has permission to access G920 hidraw interface
+  KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c262", \
+    MODE="0666", TAG+="uaccess", TAG+="udev-acl"
+'';
+
+hardware.new-lg4ff.enable = true;
+  # services.udev.extraRules = ''
+  #   # Rule 1: Modeswitch for G920 (c261 -> c262)
+  #   ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c261", RUN+="${pkgs.usb-modeswitch}/bin/usb_modeswitch -v 046d -p c261 -m 01 -r 01 -C 03 -M '0f00010142'"
+
+  #   # Rule 2: Force Permissions for the working G920 ID (c262)
+  #   # This specifically addresses the "permission denied" error.
+  #   # We apply the rule to *all* associated input devices for this USB ID.
+  #   SUBSYSTEMS=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c262", MODE="0666"
+
+  #   # You might also try specifying the input subsystem for precision:
+  #   # SUBSYSTEM=="input", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c262", MODE="0666"
+  # '';
+  
+  # ... (rest of your config) ...
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
