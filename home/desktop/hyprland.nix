@@ -105,6 +105,13 @@
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
     ];
+    bindle = [
+      # Helligkeit erhöhen (z.B. Fn + F3)
+      ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
+
+      # Helligkeit verringern (z.B. Fn + F2)
+      ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%-"
+    ];
     bind =
       [
         "$mod, F, fullscreen"

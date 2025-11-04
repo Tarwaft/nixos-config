@@ -7,7 +7,7 @@
     ./rofi.nix
     ./hyprcursor.nix
     ./hyprpaper.nix
-   
+    ./misc.nix
     ./waybar.nix
     ./dunst.nix
 ];
