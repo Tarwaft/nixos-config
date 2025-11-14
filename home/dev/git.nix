@@ -1,7 +1,7 @@
 {
     programs.git = {
         enable = true;
-        userName = "tarwaft";
-        userEmail = "tarwaft@pm.me";
+        settings.user.name = "tarwaft";
+        settings.user.email = "tarwaft@pm.me";
   };
 }
