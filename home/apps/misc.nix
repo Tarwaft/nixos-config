@@ -31,6 +31,7 @@
         evtest
         usbview
         protonplus
+        twitch-dl
 
     ]);
     
