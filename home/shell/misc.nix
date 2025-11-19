@@ -19,7 +19,7 @@
         unzip
         p7zip
         fzf
-        git
+        #git
         openssh
         ffmpeg
         usbutils

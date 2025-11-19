@@ -32,6 +32,7 @@
         usbview
         calibre
         protonplus
+        twitch-dl
 
     ]);
     
