@@ -30,6 +30,7 @@
         obs-studio
         evtest
         usbview
+        calibre
         protonplus
         twitch-dl
 
