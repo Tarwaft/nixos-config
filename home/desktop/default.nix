@@ -13,6 +13,7 @@
 ];
     # Optional, hint Electron apps to use Wayland:
     programs.kitty.enable = true;
+    dconf.settings."org/gnome/desktop/a11y/applications".screen-reader-enabled = false;
     
 
 }
