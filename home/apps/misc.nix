@@ -33,6 +33,7 @@
         calibre
         protonplus
         twitch-dl
+        nwg-displays
 
     ]);
     

@@ -23,5 +23,10 @@
         openssh
         ffmpeg
         usbutils
+        libinput
+        libinput-gestures
+        wmctrl
+        xdotool
+        gparted
     ]);
 }

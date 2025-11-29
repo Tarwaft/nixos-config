@@ -59,7 +59,13 @@
 
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+  enable = true;
+  # Enable libinput for general input device support (touchpads, touchscreens, mice)
+  libinput.enable = true;
+
+};
+services.touchegg.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
