@@ -6,8 +6,5 @@
         inputs.astal.packages.${system}.default
     ]);
 
-    programs.rofi = {
-    enable = true;
-    };
     
 }
