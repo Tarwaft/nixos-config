@@ -28,5 +28,8 @@
         wmctrl
         xdotool
         gparted
+        evtest
+        jellyfin
+        jellyfin-web
     ]);
 }

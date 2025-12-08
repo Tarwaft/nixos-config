@@ -19,7 +19,7 @@
   hardware.opentabletdriver.enable = true;
   
 
-  services.blueman.enable = true;
+  
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -58,38 +58,18 @@
 
 
 
-  # Enable the X11 windowing system.
-  services.xserver = {
-  enable = true;
-  # Enable libinput for general input device support (touchpads, touchscreens, mice)
-  libinput.enable = true;
-
-};
-services.touchegg.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  };
+  
 
   # Configure console keymap
   console.keyMap = "de";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.flatpak.enable = true;
 
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
-  programs.hyprland.enable = true;
+  
 
 nix.settings = {
     http-connections = 128;
@@ -98,23 +78,7 @@ nix.settings = {
   };
 
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-   
-
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
+  
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -138,20 +102,7 @@ nix.settings = {
   };
 
 
-  services.udev.packages = with pkgs; [
-    usb-modeswitch # Make sure the tool is available
-    oversteer
-    logitech-udev-rules
-  ];
-  services.udev.extraRules = ''
-  # Automatically switch G920 from Xbox to HID mode
-  ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c261", \
-    RUN+="${pkgs.usb-modeswitch}/bin/usb_modeswitch -v 046d -p c261 -m 01 -r 01 -C 03 -M '0f00010142'"
-
-  # Ensure Oversteer has permission to access G920 hidraw interface
-  KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c262", \
-    MODE="0666", TAG+="uaccess", TAG+="udev-acl"
-'';
+  
 
 hardware.new-lg4ff.enable = true;
   # services.udev.extraRules = ''
@@ -180,31 +131,8 @@ hardware.new-lg4ff.enable = true;
 
 #services.jellyfin.enable = true;
 #services.jellyfin.user = "paimon";
-programs.niri.enable = true;
-services.mysql = {
-        enable = true;
-        package = pkgs.mariadb;
-    };
-
-
-programs.steam = {
-        enable = true;
-        remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-        dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-        localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-    };
 
   environment.variables.EDITOR = "nvim";
-
-
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 

@@ -58,6 +58,8 @@
           
           ./configuration.nix
           ./paimon.nix
+          ./programs.nix
+          ./services.nix
           ./vm.nix
           home-manager.nixosModules.home-manager
           {
@@ -77,6 +79,8 @@
         modules = [
           ./vassago.nix
           ./configuration.nix
+          ./programs.nix
+          ./services.nix
 
           home-manager.nixosModules.home-manager
           {

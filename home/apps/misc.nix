@@ -16,29 +16,22 @@
         libreoffice-still
         anki-bin
         arduino
-
-        vlc
-        jellyfin
-        jellyfin-web
+        vlc 
         prismlauncher
         spotify
         ungoogled-chromium
         xournalpp
-
         jetbrains-toolbox
         oversteer
         obs-studio
-        evtest
         usbview
         calibre
         protonplus
         twitch-dl
         nwg-displays
         antares
-        mariadb
         cliphist
         wl-clipboard
-
         blender-hip
         kdePackages.dolphin 
         kdePackages.konsole

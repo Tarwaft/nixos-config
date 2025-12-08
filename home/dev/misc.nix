@@ -18,5 +18,6 @@
         cmake 
         gnumake 
         neovim
+        mariadb
         ]);
 }
