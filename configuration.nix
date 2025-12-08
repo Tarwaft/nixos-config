@@ -180,6 +180,10 @@ hardware.new-lg4ff.enable = true;
 
 #services.jellyfin.enable = true;
 #services.jellyfin.user = "paimon";
+services.mysql = {
+        enable = true;
+        package = pkgs.mariadb;
+    };
 
 
 programs.steam = {

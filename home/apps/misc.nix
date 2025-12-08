@@ -34,8 +34,11 @@
         protonplus
         twitch-dl
         nwg-displays
+        antares
+        mariadb
 
     ]);
+    
     
     
 
