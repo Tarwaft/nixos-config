@@ -5,8 +5,9 @@
     services.xserver = {
         enable = true;
         # Enable libinput for general input device support (touchpads, touchscreens, mice)
-        libinput.enable = true;
+        
     };
+    services.libinput.enable = true;
     services.touchegg.enable = true;
 
     # Enable the GNOME Desktop Environment.
