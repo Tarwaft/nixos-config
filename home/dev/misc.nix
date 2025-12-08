@@ -1,4 +1,22 @@
 {pkgs,...}:
 {
-    home.packages = (with pkgs; [jdk stockfish cutechess protontricks wget wget2 git-filter-repo python315]);
+    home.packages = (with pkgs; [
+        jdk 
+        stockfish 
+        cutechess 
+        protontricks 
+        wget 
+        wget2 
+        git-filter-repo 
+        python315
+        godot
+        lua 
+        libgcc 
+        gcc 
+        pkg-config 
+        gdb 
+        cmake 
+        gnumake 
+        neovim
+        ]);
 }

@@ -4,5 +4,6 @@
         ./qt.nix
         ./gtk.nix
         ./compression.nix
+        ./misc.nix
     ];
 }

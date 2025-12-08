@@ -38,9 +38,14 @@
         mariadb
         cliphist
         wl-clipboard
-    ]);
-    
-    
-    
 
+        blender-hip
+        kdePackages.dolphin 
+        kdePackages.konsole
+        krita
+        obsidian
+        rnote
+        ungoogled-chromium
+        vesktop
+    ]);
 }
