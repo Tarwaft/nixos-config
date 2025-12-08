@@ -38,6 +38,7 @@
 
     ];
     exec-once = [
+      "wl-paste --watch cliphist store"
        "systemctl --user start hyprpolkitagent"
        #"nix run ~/nixos-config/home/desktop/astal/"
        "waybar"
@@ -135,6 +136,7 @@
         "$mod, h, movefocus, l"
         "$mod, k, movefocus, u"
         "$mod, j, movefocus, d"
+        "$mod, y, exec, /home/tarwaft/Downloads/cliphist.sh"
 
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"

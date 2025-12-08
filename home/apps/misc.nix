@@ -36,7 +36,8 @@
         nwg-displays
         antares
         mariadb
-
+        cliphist
+        wl-clipboard
     ]);
     
     

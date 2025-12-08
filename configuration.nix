@@ -180,6 +180,7 @@ hardware.new-lg4ff.enable = true;
 
 #services.jellyfin.enable = true;
 #services.jellyfin.user = "paimon";
+programs.niri.enable = true;
 services.mysql = {
         enable = true;
         package = pkgs.mariadb;
