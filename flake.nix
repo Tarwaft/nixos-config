@@ -26,10 +26,10 @@
       inputs.hyprlang.follows = "hyprland/hyprlang";
     };
     
-    astal = {
-      url = "github:aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # astal = {
+    #   url = "github:aylur/astal";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = inputs@{ self, astal, nixpkgs, home-manager, hyprland, ... }: let
@@ -45,10 +45,10 @@
       src = ./home/desktop/astal; # should contain init.lua
 
       # add extra glib packages or binaries
-      extraPackages = [
-        astal.packages.${system}.battery
-        pkgs.dart-sass
-      ];
+      # extraPackages = [
+      #   astal.packages.${system}.battery
+      #   pkgs.dart-sass
+      # ];
     };
     
     nixosConfigurations = {
