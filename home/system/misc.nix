@@ -1,7 +1,10 @@
 {pkgs, ...}:
 {
     home.packages = (with pkgs; [
-        
+        wineWowPackages.stable
+        vulkan-tools
+        vulkan-loader
+        vkd3d-proton
     ]);
     dconf.enable = true;
     dconf.settings = {

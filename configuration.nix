@@ -17,6 +17,18 @@
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth cont
 
   hardware.opentabletdriver.enable = true;
+
+  hardware.opengl = {
+  enable = true;
+  driSupport32Bit = true;   # THIS IS CRITICAL
+};
+environment.systemPackages = with pkgs; [
+  lutris
+  winetricks
+  vulkan-loader
+  vulkan-tools
+  mesa
+];
   
 
   
@@ -43,6 +55,7 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  hardware.graphics.enable32Bit = true;
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";

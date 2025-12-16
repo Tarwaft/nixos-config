@@ -2,6 +2,7 @@
 {
     home.packages = (with pkgs; [
         r2modman
+        lutris
     ]);
     
     
