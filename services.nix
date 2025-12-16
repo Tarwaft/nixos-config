@@ -25,7 +25,7 @@
     services.printing.enable = true;
     services.flatpak.enable = true;
 
-
+    systemd.user.services.orca.enable = false;
     # Enable sound with pipewire.
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;

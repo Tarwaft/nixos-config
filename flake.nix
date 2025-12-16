@@ -32,24 +32,24 @@
     # };
   };
 
-  outputs = inputs@{ self, astal, nixpkgs, home-manager, hyprland, ... }: let
+  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, ... }: let
 
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     
     in {
     
-     packages.${system}.default = astal.lib.mkLuaPackage {
-      inherit pkgs;
-      name = "my-shell"; # how to name the executable
-      src = ./home/desktop/astal; # should contain init.lua
+    #  packages.${system}.default = astal.lib.mkLuaPackage {
+    #   inherit pkgs;
+    #   name = "my-shell"; # how to name the executable
+    #   src = ./home/desktop/astal; # should contain init.lua
 
-      # add extra glib packages or binaries
-      # extraPackages = [
-      #   astal.packages.${system}.battery
-      #   pkgs.dart-sass
-      # ];
-    };
+    #   # add extra glib packages or binaries
+    #   # extraPackages = [
+    #   #   astal.packages.${system}.battery
+    #   #   pkgs.dart-sass
+    #   # ];
+    # };
     
     nixosConfigurations = {
       paimon = nixpkgs.lib.nixosSystem {
