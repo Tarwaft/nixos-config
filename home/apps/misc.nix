@@ -4,7 +4,7 @@
         linuxConsoleTools
         blueman 
         opentabletdriver 
-        mpv 
+        mpv
         pavucontrol 
         inkscape 
         eog 
