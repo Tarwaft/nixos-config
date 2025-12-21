@@ -40,5 +40,6 @@
         rnote
         ungoogled-chromium
         vesktop
+        greenfoot
     ]);
 }

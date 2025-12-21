@@ -122,7 +122,7 @@ hardware.new-lg4ff.enable = true;
   #   # Rule 1: Modeswitch for G920 (c261 -> c262)
   #   ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c261", RUN+="${pkgs.usb-modeswitch}/bin/usb_modeswitch -v 046d -p c261 -m 01 -r 01 -C 03 -M '0f00010142'"
 
-  #   # Rule 2: Force Permissions for the working G920 ID (c262)
+  #   # Rule 2: Force Permienvironmentssions for the working G920 ID (c262)
   #   # This specifically addresses the "permission denied" error.
   #   # We apply the rule to *all* associated input devices for this USB ID.
   #   SUBSYSTEMS=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c262", MODE="0666"
@@ -145,7 +145,7 @@ hardware.new-lg4ff.enable = true;
 #services.jellyfin.enable = true;
 #services.jellyfin.user = "paimon";
 
-  environment.variables.EDITOR = "nvim";
+  environment.variables.EDITOR = "nvim"; 
 
   # List services that you want to enable:
 

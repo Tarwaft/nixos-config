@@ -25,6 +25,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.hyprlang.follows = "hyprland/hyprlang";
     };
+    nix-gaming.url = "github:fufexan/nix-gaming";
     
     # astal = {
     #   url = "github:aylur/astal";
@@ -54,13 +55,15 @@
     nixosConfigurations = {
       paimon = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
-          
+          ./sc.nix
           ./configuration.nix
           ./paimon.nix
           ./programs.nix
           ./services.nix
           ./vm.nix
+          
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
