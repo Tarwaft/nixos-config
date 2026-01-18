@@ -1,7 +1,8 @@
 {pkgs,...}:
 {
     home.packages = (with pkgs; [
-        jdk 
+        #jdk
+        jdk25_headless
         stockfish 
         cutechess 
         protontricks 

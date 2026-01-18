@@ -20,10 +20,23 @@
         variant = "";
     };
 
+    
+
 
     # Enable CUPS to print documents.
     services.printing.enable = true;
+
+
     services.flatpak.enable = true;
+
+
+    systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+    };
 
     systemd.user.services.orca.enable = false;
     # Enable sound with pipewire.
@@ -51,6 +64,8 @@
         KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c262", \
         MODE="0666", TAG+="uaccess", TAG+="udev-acl"
     '';
+
+
 
     services.blueman.enable = true;
     services.mysql = {
