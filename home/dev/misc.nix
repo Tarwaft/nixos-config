@@ -19,5 +19,7 @@
         gnumake 
         neovim
         mariadb
+        mosquitto
+        mqttx
         ]);
 }
