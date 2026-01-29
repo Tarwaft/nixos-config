@@ -32,7 +32,7 @@
         antares
         cliphist
         wl-clipboard
-        blender-hip
+        discord
         kdePackages.dolphin 
         kdePackages.konsole
         krita
@@ -41,5 +41,6 @@
         ungoogled-chromium
         vesktop
         greenfoot
+        eclipses.eclipse-java
     ]);
 }
