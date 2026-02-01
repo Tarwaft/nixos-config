@@ -4,7 +4,8 @@
         btop
 
         # movies
-        inputs.lobster.packages.${system}.lobster
+        #TODO: uncomment this after they fix their dependency
+        #inputs.lobster.packages.${system}.lobster
         ani-cli
 
 

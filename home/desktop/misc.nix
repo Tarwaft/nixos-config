@@ -5,6 +5,7 @@
         brightnessctl
         # inputs.astal.packages.${system}.default
         # ags
+        
     ]);
 
     
