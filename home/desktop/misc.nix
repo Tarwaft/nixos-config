@@ -4,6 +4,7 @@
     [
         brightnessctl
         hyprlock
+        hyprpicker
         #hyprsysteminfo
         # inputs.astal.packages.${system}.default
         # ags

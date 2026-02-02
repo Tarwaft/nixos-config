@@ -15,6 +15,7 @@
       "x-scheme-handler/http" = ["zen-twilight.desktop"];
       "image/png" = ["eog.desktop"];
       "x-scheme-handler/acmanager" = ["Assetto Corsa.desktop"];
+      "text/html" = [ "zen-twilight.desktop" ];
     };
   };
   
