@@ -4,7 +4,7 @@
         btop
 
         # movies
-        inputs.lobster.packages.${system}.lobster
+        #inputs.lobster.packages.${system}.lobster
         ani-cli
 
 

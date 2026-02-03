@@ -43,10 +43,8 @@
        #"nix run ~/nixos-config/home/desktop/astal/"
        "waybar"
     ];
-    windowrulev2 = [
-      "suppressevent maximize, class:.*"
-    ];
-    dwindle = {
+
+     dwindle = {
       pseudotile = "yes";
       preserve_split = "yes";
     };
