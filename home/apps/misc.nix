@@ -43,5 +43,6 @@
         greenfoot
         eclipses.eclipse-java
         blockbench
+        qpwgraph
     ]);
 }
