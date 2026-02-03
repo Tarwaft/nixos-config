@@ -37,7 +37,17 @@
 
     system = "x86_64-linux";
 
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs {
+      inherit system;
+        config = {
+          permittedInsecurePackages = [
+            "libsoup-2.74.3"
+          ];
+        allowUnfree = true;
+        };
+    };
+
+    
     
     in {
     
@@ -55,9 +65,10 @@
     
     nixosConfigurations = {
       paimon = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit pkgs;
         specialArgs = { inherit inputs; };
         modules = [
+          ./plymouth.nix
           ./sc.nix
           ./configuration.nix
           ./paimon.nix
@@ -79,8 +90,9 @@
         ];
       };
       vassago = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit pkgs;
         modules = [
+          ./plymouth.nix
           ./vassago.nix
           ./configuration.nix
           ./programs.nix

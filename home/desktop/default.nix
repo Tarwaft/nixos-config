@@ -4,13 +4,12 @@
    # wayland.windowManager.hyprland.enable = true; # enable Hyprland
    imports = [
     ./niri.nix
-    ./hyprland.nix
+    #./hyprland.nix
     ./rofi.nix
-    ./hyprcursor.nix
-    ./hyprpaper.nix
     ./misc.nix
     ./waybar.nix
     ./dunst.nix
+    ./hypr
 ];
     # Optional, hint Electron apps to use Wayland:
     dconf.settings."org/gnome/desktop/a11y/applications".screen-reader-enabled = false;
