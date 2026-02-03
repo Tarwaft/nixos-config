@@ -35,7 +35,7 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, hyprland, ... }: let
 
-    system = "x86_64-linux";
+    stdenv.hostPlatform.system = "x86_64-linux";
 
     pkgs = nixpkgs.legacyPackages.${system};
     
@@ -55,7 +55,7 @@
     
     nixosConfigurations = {
       paimon = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        stdenv.hostPlatform.system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./sc.nix
@@ -74,12 +74,12 @@
             home-manager.users.tarwaft = import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-            home-manager.extraSpecialArgs = {inherit inputs; inherit system;};
+            home-manager.extraSpecialArgs = {inherit inputs; inherit stdenv.hostPlatform.system;};
           }
         ];
       };
       vassago = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        stdenv.hostPlatform.system = "x86_64-linux";
         modules = [
           ./vassago.nix
           ./configuration.nix
@@ -94,7 +94,7 @@
             home-manager.users.tarwaft = import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-            home-manager.extraSpecialArgs = {inherit inputs; inherit system;};
+            home-manager.extraSpecialArgs = {inherit inputs; inherit stdenv.hostPlatform.system;};
           }
         ];
       };

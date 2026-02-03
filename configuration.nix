@@ -18,9 +18,9 @@
 
   hardware.opentabletdriver.enable = true;
 
-  hardware.opengl = {
+  hardware.graphics = {
   enable = true;
-  driSupport32Bit = true;   # THIS IS CRITICAL
+  enable32Bit = true;   # THIS IS CRITICAL
 };
 environment.systemPackages = with pkgs; [
   lutris
@@ -64,7 +64,6 @@ xdg.portal = {
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  hardware.graphics.enable32Bit = true;
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";

@@ -43,20 +43,6 @@
       
       
 
-<<<<<<< HEAD
-    ];
-    exec-once = [
-      "wl-paste --watch cliphist store"
-       "systemctl --user start hyprpolkitagent"
-       #"nix run ~/nixos-config/home/desktop/astal/"
-       "waybar"
-    ];
-
-     dwindle = {
-      pseudotile = "yes";
-      preserve_split = "yes";
-    };
-=======
   #   ];
   #   exec-once = [
   #     "wl-paste --watch cliphist store"
@@ -71,7 +57,6 @@
   #     pseudotile = "yes";
   #     preserve_split = "yes";
   #   };
->>>>>>> 31619681585be168711fad65b22f19c5b3bc3785
 
   #   monitor = [
   #     # "HDMI-A-1,2560x1440,0x0,1"
