@@ -4,6 +4,8 @@
     [
         hyprlock
         hyprpicker
+        hyprpaper
+        hyprshot
     ]);
 
     
