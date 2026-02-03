@@ -35,9 +35,19 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, hyprland, ... }: let
 
-    stdenv.hostPlatform.system = "x86_64-linux";
+    system = "x86_64-linux";
 
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs {
+      inherit system;
+        config = {
+          permittedInsecurePackages = [
+            "libsoup-2.74.3"
+          ];
+        allowUnfree = true;
+        };
+    };
+
+    
     
     in {
     
@@ -55,9 +65,10 @@
     
     nixosConfigurations = {
       paimon = nixpkgs.lib.nixosSystem {
-        stdenv.hostPlatform.system = "x86_64-linux";
+        inherit pkgs;
         specialArgs = { inherit inputs; };
         modules = [
+          ./plymouth.nix
           ./sc.nix
           ./configuration.nix
           ./paimon.nix
@@ -74,13 +85,14 @@
             home-manager.users.tarwaft = import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-            home-manager.extraSpecialArgs = {inherit inputs; inherit stdenv.hostPlatform.system;};
+            home-manager.extraSpecialArgs = {inherit inputs; inherit system;};
           }
         ];
       };
       vassago = nixpkgs.lib.nixosSystem {
-        stdenv.hostPlatform.system = "x86_64-linux";
+        inherit pkgs;
         modules = [
+          ./plymouth.nix
           ./vassago.nix
           ./configuration.nix
           ./programs.nix
@@ -94,7 +106,7 @@
             home-manager.users.tarwaft = import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-            home-manager.extraSpecialArgs = {inherit inputs; inherit stdenv.hostPlatform.system;};
+            home-manager.extraSpecialArgs = {inherit inputs; inherit system;};
           }
         ];
       };

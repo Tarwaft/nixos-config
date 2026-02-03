@@ -7,9 +7,9 @@
 {
   # TEMP for insecure packages that are needed
   #TODO check if it can be removed
-  nixpkgs.config.permittedInsecurePackages = [
-    "libsoup-2.74.3"
-  ];
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "libsoup-2.74.3"
+  # ];
 
 
 
@@ -141,8 +141,6 @@ hardware.new-lg4ff.enable = true;
   
   # ... (rest of your config) ...
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
