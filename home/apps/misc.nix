@@ -42,5 +42,6 @@
         vesktop
         greenfoot
         eclipses.eclipse-java
+        blockbench
     ]);
 }

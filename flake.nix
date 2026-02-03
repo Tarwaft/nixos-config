@@ -37,18 +37,6 @@
 
     system = "x86_64-linux";
 
-    #TODO: this is temporary, can be removed once it is fixed in gcc
-      htmlXmlUtilsFix = (final: prev: {
-    html-xml-utils = prev.html-xml-utils.overrideAttrs (old: {
-      postPatch = (old.postPatch or "") + ''
-        substituteInPlace dtd.hash \
-          --replace "lookup_element (void)" \
-                    "lookup_element (register const char *str, register size_t len)"
-      '';
-    });
-  });
-
-
     pkgs = nixpkgs.legacyPackages.${system};
     
     in {
