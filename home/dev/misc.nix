@@ -28,5 +28,8 @@
         #libffi_3_3
         openssl
         pkg-config
+
+
+        rustup
         ]);
 }
