@@ -30,7 +30,11 @@
         pkg-config
 
 
-        rustup
+        rustc
+        cargo
+        clippy
+
+        rustlings
         alsa-lib
         # Cross Platform 3D Graphics API
         vulkan-loader
