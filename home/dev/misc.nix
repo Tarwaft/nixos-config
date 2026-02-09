@@ -18,7 +18,6 @@
         gdb 
         cmake 
         gnumake 
-        neovim
         mariadb
         mosquitto
         mqttx
@@ -29,10 +28,13 @@
         openssl
         pkg-config
 
-
-        rustc
         cargo
+        rustc
+        rust-analyzer
         clippy
+        rustfmt
+
+        rustPlatform.rustLibSrc
 
         rustlings
         alsa-lib
@@ -48,4 +50,9 @@
         xorg.libXrandr
         libxkbcommon
     ]);
+
+    home.sessionVariables = {
+    RUST_SRC_PATH =
+      "${pkgs.rustPlatform.rustLibSrc}/lib/rustlib/src/rust/library";
+  };
 }
