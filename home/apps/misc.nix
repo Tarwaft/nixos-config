@@ -45,5 +45,6 @@
         blockbench
         aseprite
         sfxr
+        qpwgraph
     ]);
 }
