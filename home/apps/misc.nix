@@ -43,5 +43,7 @@
         greenfoot
         eclipses.eclipse-java
         blockbench
+        aseprite
+        sfxr
     ]);
 }
