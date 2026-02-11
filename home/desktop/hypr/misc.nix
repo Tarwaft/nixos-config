@@ -6,6 +6,7 @@
         hyprpicker
         hyprpaper
         hyprshot
+        swaylock-effects
     ]);
 
     
