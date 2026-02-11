@@ -5,5 +5,6 @@
         ./zen-browser.nix
         ./misc.nix
         ./signal.nix
+        ./zed.nix
     ];
 }

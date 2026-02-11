@@ -5,7 +5,7 @@
   home.username = "tarwaft";
   home.homeDirectory = "/home/tarwaft";
   home.sessionVariables = {
-    EDITOR = "neovim";
+    #EDITOR = "neovim";
     BROWSER = "zen-twilight";
   };
   xdg.mimeApps = {
