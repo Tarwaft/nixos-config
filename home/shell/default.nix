@@ -6,5 +6,6 @@
         ./misc.nix
         ./yazi.nix
         ./starship.nix
+        ./zsh.nix
     ];
 }
