@@ -159,6 +159,7 @@ hardware.new-lg4ff.enable = true;
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
+  #networking.networkmanager.wifi.scanRandMacAddress = false;
   # networking.firewall.allowedTCPPorts = [ ... ];
    #networking.firewall.allowedUDPPorts = [8890];
   # Or disable the firewall altogether.
