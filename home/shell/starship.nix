@@ -2,6 +2,7 @@
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
+    enableZshIntegration = true;
     settings = {
       "$schema" = "https://starship.rs/config-schema.json";
       format = "[](color_bg4)$os$username[](bg:color_lightblue fg:color_bg4)$directory[](fg:color_lightblue bg:color_aqua)$git_branch$git_status[](fg:color_aqua bg:color_blue)$c$cpp$rust$golang$nodejs$php$java$kotlin$haskell$python[](fg:color_blue bg:color_bg3)$docker_context$conda$pixi[](fg:color_bg3 bg:color_bg1)$time[ ](fg:color_bg1)$line_break$character";

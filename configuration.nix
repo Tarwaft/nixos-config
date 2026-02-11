@@ -141,6 +141,9 @@ hardware.new-lg4ff.enable = true;
   
   # ... (rest of your config) ...
 
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

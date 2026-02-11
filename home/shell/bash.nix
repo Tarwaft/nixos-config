@@ -1,6 +1,6 @@
 {
     programs.bash = {
-        enable = false;
+        enable = true;
         enableCompletion = true;
         initExtra = builtins.readFile ./bashrc;
     };

@@ -1,3 +1,4 @@
+{users,pkgs,...}:
 {
     programs.zsh = {
         enable = true;
