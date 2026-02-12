@@ -1,0 +1,38 @@
+
+# Create/enable direnv for a flake-based project in the current directory
+direnv-flake() {
+  local dir="${1:-$PWD}"
+
+  if [[ ! -d "$dir" ]]; then
+    echo "direnv-flake: not a directory: $dir" >&2
+    return 2
+  fi
+
+  if [[ ! -f "$dir/flake.nix" ]]; then
+    echo "direnv-flake: no flake.nix in: $dir" >&2
+    return 2
+  fi
+
+  # Create .envrc if missing; if present, leave it alone unless it doesn't mention 'use flake'
+  if [[ ! -f "$dir/.envrc" ]]; then
+    cat > "$dir/.envrc" <<'EOF'
+use flake
+EOF
+    echo "Created $dir/.envrc"
+  else
+    if ! grep -qE '^\s*use\s+flake(\s|$)' "$dir/.envrc"; then
+      echo "direnv-flake: $dir/.envrc exists but doesn't contain 'use flake'." >&2
+      echo "direnv-flake: edit it manually (not touching existing file)." >&2
+      return 3
+    fi
+    echo "Found existing $dir/.envrc"
+  fi
+
+  # Allow direnv in that directory (this will also create/use $dir/.direnv)
+  (cd "$dir" && direnv allow)
+
+  echo "Enabled direnv for: $dir"
+}
+
+# Nice short alias
+alias df='direnv-flake'

@@ -38,6 +38,8 @@
         rustPlatform.rustLibSrc
 
         rustlings
+        wayland
+        wayland-protocols
         alsa-lib
         # Cross Platform 3D Graphics API
         vulkan-loader
