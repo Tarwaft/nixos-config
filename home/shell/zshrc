@@ -1,4 +1,9 @@
 
+
+# Auto-start Zellij
+if command -v zellij >/dev/null 2>&1 && [ -z "$ZELLIJ" ]; then
+  zellij attach main || zellij --session main
+fi
 # Create/enable direnv for a flake-based project in the current directory
 direnv-flake() {
   local dir="${1:-$PWD}"

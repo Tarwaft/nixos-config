@@ -2,13 +2,12 @@
 {
     home.packages = (with pkgs; [
         btop
-
         # movies
         #TODO: uncomment this after they fix their dependency
         #inputs.lobster.packages.${system}.lobster
         ani-cli
 
-
+        gawk
         #pretty stuff
         starship #for commandprompt
 
@@ -32,5 +31,6 @@
         evtest
         jellyfin
         jellyfin-web
+        zellij
     ]);
 }
