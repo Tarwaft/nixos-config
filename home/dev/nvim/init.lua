@@ -692,6 +692,9 @@ require("lazy").setup({
 			vim.lsp.config("rust_analyzer", {
 				settings = {
 					["rust-analyzer"] = {
+						checkOnSave = {
+							command = "clippy", -- or "check"
+						},
 						semanticHighlighting = {
 							unresolvedReference = false,
 						},
