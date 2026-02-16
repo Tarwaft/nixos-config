@@ -34,6 +34,8 @@
         clippy
         rustfmt
         lua-language-server
+        arduino-language-server
+        clang-tools # Provides clangd for the LSP
 
         rustPlatform.rustLibSrc
 
@@ -52,6 +54,8 @@
         xorg.libXi
         xorg.libXrandr
         libxkbcommon
+
+        arduino-cli
     ]);
 
     home.sessionVariables = {

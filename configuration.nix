@@ -55,6 +55,7 @@ xdg.portal = {
 
   # Enable networking
   networking.networkmanager.enable = true;
+  #networking.wireless.regulatoryDomain = "DE";
 
   security.polkit.enable = true;
 
@@ -109,7 +110,7 @@ nix.settings = {
   users.users.tarwaft = {
     isNormalUser = true;
     description = "Joshua David Conradi";
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "dialout"];
     packages = with pkgs; [
     #  thunderbird
 	    
@@ -167,7 +168,7 @@ hardware.new-lg4ff.enable = true;
    #networking.firewall.allowedUDPPorts = [8890];
   # Or disable the firewall altogether.
    networking.firewall.enable = true;
-
+networking.networkmanager.wifi.powersave = false;
    networking.firewall.allowedTCPPorts = [ 8096 ];
 
   # This value determines the NixOS release from which the default

@@ -5,6 +5,7 @@
         vulkan-tools
         vulkan-loader
         vkd3d-proton
+        pciutils
     ]);
     # dconf.settings = {
     # "org/gnome/desktop/interface" = {
