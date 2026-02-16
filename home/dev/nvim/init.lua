@@ -622,17 +622,35 @@ require("lazy").setup({
 			-- Enable the following language servers
 			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 			--  See `:help lsp-config` for information about keys and how to configure
+
 			local servers = {
-				-- clangd = {},
-				-- gopls = {},
-				-- pyright = {},
-				rust_analyzer = {},
-				--
-				-- Some languages (like typescript) have entire language plugins that can be useful:
-				--    https://github.com/pmizio/typescript-tools.nvim
-				--
-				-- But for many setups, the LSP (`ts_ls`) will work just fine
-				-- ts_ls = {},
+				rust_analyzer = {
+					settings = {
+						["rust-analyzer"] = {
+							-- better completions / imports
+							cargo = { allFeatures = true },
+							procMacro = { enable = true },
+							completion = {
+								autoimport = { enable = true },
+								callable = { snippets = "add_parentheses" },
+							},
+							imports = {
+								granularity = { group = "module" },
+								prefix = "self",
+							},
+
+							-- IMPORTANT: fix “stale” workspace info when Neovim file watching is off
+							files = { watcher = "server" },
+
+							-- your existing stuff
+							checkOnSave = { command = "clippy" },
+							semanticHighlighting = { unresolvedReference = false },
+						},
+					},
+				},
+
+				-- keep other servers here
+				-- lua_ls = {}, etc.
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -688,20 +706,6 @@ require("lazy").setup({
 				},
 			})
 			vim.lsp.enable("lua_ls")
-
-			vim.lsp.config("rust_analyzer", {
-				settings = {
-					["rust-analyzer"] = {
-						checkOnSave = {
-							command = "clippy", -- or "check"
-						},
-						semanticHighlighting = {
-							unresolvedReference = false,
-						},
-					},
-				},
-			})
-			vim.lsp.enable("rust_analyzer")
 		end,
 	},
 

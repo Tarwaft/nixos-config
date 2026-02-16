@@ -7,5 +7,6 @@
         ./yazi.nix
         ./starship.nix
         ./zsh.nix
+        ./zellij.nix
     ];
 }
