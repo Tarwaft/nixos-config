@@ -318,7 +318,7 @@ require("lazy").setup({
 
 			-- Document existing key chains
 			spec = {
-				{ "<leader>s", group = "[S]earch", mode = { "n", "v" } },
+				{ "<leader>s", group = "[S]earch",   mode = { "n", "v" } },
 				{ "<leader>t", group = "[T]oggle" },
 				{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
 			},
@@ -363,7 +363,7 @@ require("lazy").setup({
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 
 			-- Useful for getting pretty icons, but requires a Nerd Font.
-			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+			{ "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
 		},
 		config = function()
 			-- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -648,9 +648,17 @@ require("lazy").setup({
 						},
 					},
 				},
-
-				-- keep other servers here
 				-- lua_ls = {}, etc.
+				clangd = {},
+				-- gopls = {},
+				-- pyright = {},
+				arduino_language_server = {},
+				--
+				-- Some languages (like typescript) have entire language plugins that can be useful:
+				--    https://github.com/pmizio/typescript-tools.nvim
+				--
+				-- But for many setups, the LSP (`ts_ls`) will work just fine
+				-- ts_ls = {},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -959,7 +967,7 @@ require("lazy").setup({
 	--    This is the easiest way to modularize your config.
 	--
 	--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-	-- { import = 'custom.plugins' },
+	{ import = "custom.plugins" },
 	--
 	-- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
 	-- Or use telescope!
