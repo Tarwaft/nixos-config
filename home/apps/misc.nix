@@ -47,5 +47,6 @@
         sfxr
         element-desktop
         qpwgraph
+        thunderbird
     ]);
 }

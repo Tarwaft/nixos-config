@@ -318,7 +318,7 @@ require("lazy").setup({
 
 			-- Document existing key chains
 			spec = {
-				{ "<leader>s", group = "[S]earch",   mode = { "n", "v" } },
+				{ "<leader>s", group = "[S]earch", mode = { "n", "v" } },
 				{ "<leader>t", group = "[T]oggle" },
 				{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
 			},
@@ -363,7 +363,7 @@ require("lazy").setup({
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 
 			-- Useful for getting pretty icons, but requires a Nerd Font.
-			{ "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
+			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
 		config = function()
 			-- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -633,6 +633,7 @@ require("lazy").setup({
 							completion = {
 								autoimport = { enable = true },
 								callable = { snippets = "add_parentheses" },
+								excludeTraits = {}, -- make sure nothing is excluded
 							},
 							imports = {
 								granularity = { group = "module" },
@@ -834,7 +835,7 @@ require("lazy").setup({
 			},
 
 			sources = {
-				default = { "lsp", "path", "snippets" },
+				default = { "lsp", "path", "snippets", "buffer" },
 			},
 
 			snippets = { preset = "luasnip" },

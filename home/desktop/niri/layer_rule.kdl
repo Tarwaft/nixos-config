@@ -1,0 +1,10 @@
+// Settings that influence how windows are positioned and sized.
+// Find more information on the wiki:
+// https://yalter.github.io/niri/Configuration:-Layout
+layer-rule {
+    // Replace this with hyprpaper's namespace from: niri msg layers
+    match namespace="hyprpaper"
+    place-within-backdrop true
+}
+
+

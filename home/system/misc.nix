@@ -6,6 +6,7 @@
         vulkan-loader
         vkd3d-proton
         pciutils
+        xwayland-satellite
     ]);
     # dconf.settings = {
     # "org/gnome/desktop/interface" = {
