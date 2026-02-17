@@ -25,7 +25,7 @@ binds {
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
 
-    Super+L {spawn-sh "hyprlock --grace 3";}
+    Super+o {spawn-sh "hyprlock --grace 3";}
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.

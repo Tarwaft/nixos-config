@@ -3,7 +3,8 @@
         enable = true;
         
         settings = {
-            background_opacity = 0.8;
+            background_opacity = 0.9;
+            enable_audio_bell = false;
             window_margin_width = 1;
             font_family = "Monaspace Krypton";
             confirm_os_window_close = 0;
