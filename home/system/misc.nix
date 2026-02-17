@@ -7,6 +7,7 @@
         vkd3d-proton
         pciutils
         xwayland-satellite
+        mako
     ]);
     # dconf.settings = {
     # "org/gnome/desktop/interface" = {

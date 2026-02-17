@@ -56,6 +56,7 @@
         libxkbcommon
 
         arduino-cli
+        lazygit
     ]);
 
     home.sessionVariables = {

@@ -1,5 +1,5 @@
 {config,...}:
 {
-  xdg.configFile."zellij/config.kdl".source =
-  config.lib.file.mkOutOfStoreSymlink "/home/tarwaft/nixos-config/home/shell/zellij/config.kdl";
+  xdg.configFile."zellij".source =
+  config.lib.file.mkOutOfStoreSymlink "/home/tarwaft/nixos-config/home/shell/zellij";
 }
