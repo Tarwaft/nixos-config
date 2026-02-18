@@ -32,5 +32,8 @@
         jellyfin
         jellyfin-web
         zellij
+        lsd
+        ncdu
+        ripgrep
     ]);
 }
