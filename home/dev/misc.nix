@@ -57,6 +57,9 @@
 
         arduino-cli
         lazygit
+        platformio
+        python3Packages.packaging
+        picocom
     ]);
 
     home.sessionVariables = {

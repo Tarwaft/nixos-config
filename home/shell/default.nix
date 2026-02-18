@@ -8,5 +8,6 @@
         ./starship.nix
         ./zsh.nix
         ./zellij.nix
+        ./atuin.nix
     ];
 }
