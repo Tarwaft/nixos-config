@@ -11,6 +11,7 @@
             ll = "ls -l";
             nrs = "sudo nixos-rebuild switch --flake ~/nixos-config/";
             nrsst = "sudo nixos-rebuild switch --flake ~/nixos-config/ --show-trace";
+            pioup = "pio run -t upload";
         };
         history.size = 10000;
     };
