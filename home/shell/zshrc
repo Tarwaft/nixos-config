@@ -4,7 +4,7 @@ if [[ -o interactive ]] && [[ -z "$ZELLIJ" ]] && [[ -t 1 ]]; then
   # Optional: don't autostart inside ssh
   # [[ -n "$SSH_CONNECTION" ]] && return
 
-  zellij attach -c main
+  zellij -n #attach -c main
   print -P "%F{yellow}zellij exited%f (run: zellij attach -c main)"
 fi
 

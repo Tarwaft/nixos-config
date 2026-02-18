@@ -261,6 +261,8 @@ web_client {
     font "monospace"
 }
  
+
+session_serialization false
 // Use a simplified UI without special fonts (arrow glyphs)
 // Options:
 //   - true
