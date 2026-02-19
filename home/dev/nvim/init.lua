@@ -650,10 +650,16 @@ require("lazy").setup({
 					},
 				},
 				-- lua_ls = {}, etc.
-				clangd = {},
+				clangd = {
+					cmd = {
+						"clangd",
+						"--background-index",
+						"--query-driver=**/.platformio/packages/**/bin/*gcc,**/.platformio/packages/**/bin/*g++",
+					},
+				},
 				-- gopls = {},
 				-- pyright = {},
-				arduino_language_server = {},
+				-- arduino_language_server = {},
 				--
 				-- Some languages (like typescript) have entire language plugins that can be useful:
 				--    https://github.com/pmizio/typescript-tools.nvim
@@ -1000,6 +1006,10 @@ require("lazy").setup({
 		},
 	},
 })
+
+vim.api.nvim_create_user_command("PioCompiledb", function()
+	vim.cmd("!pio run -t compiledb")
+end, {})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
