@@ -10,6 +10,7 @@
     ./waybar.nix
     ./dunst.nix
     ./hypr
+    ./quickshell.nix
 ];
     # Optional, hint Electron apps to use Wayland:
     dconf.settings."org/gnome/desktop/a11y/applications".screen-reader-enabled = false;
