@@ -1,7 +1,7 @@
 {pkgs, ...}:
 {
     home.packages = (with pkgs; [
-        wineWowPackages.stable
+        wineWow64Packages.stable
         vulkan-tools
         vulkan-loader
         vkd3d-proton

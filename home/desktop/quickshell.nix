@@ -1,6 +1,8 @@
+{config, ...}:
 {
     programs.quickshell = {
     	enable = true;
-    	activeConfig = "~/nixos-config/home/desktop/quickshell/shell.qml";
 	};
+    xdg.configFile."quickshell".source =
+  config.lib.file.mkOutOfStoreSymlink "/home/tarwaft/nixos-config/home/desktop/quickshell";
 }

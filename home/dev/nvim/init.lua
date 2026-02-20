@@ -624,6 +624,7 @@ require("lazy").setup({
 			--  See `:help lsp-config` for information about keys and how to configure
 
 			local servers = {
+				qmlls = {},
 				rust_analyzer = {
 					settings = {
 						["rust-analyzer"] = {

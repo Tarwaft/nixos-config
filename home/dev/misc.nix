@@ -37,6 +37,8 @@
         arduino-language-server
         clang-tools # Provides clangd for the LSP
 
+        qt6.qtdeclarative
+
         rustPlatform.rustLibSrc
 
         rustlings
@@ -49,10 +51,10 @@
         vulkan-tools
         # Other dependencies
         libudev-zero
-        xorg.libX11
-        xorg.libXcursor
-        xorg.libXi
-        xorg.libXrandr
+        libX11
+        libXcursor
+        libXi
+        libXrandr
         libxkbcommon
 
         arduino-cli
