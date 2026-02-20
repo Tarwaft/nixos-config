@@ -155,7 +155,8 @@ hardware.new-lg4ff.enable = true;
 #services.jellyfin.enable = true;
 #services.jellyfin.user = "paimon";
 
-  environment.variables.EDITOR = "nvim"; 
+  environment.variables.EDITOR = "nvim";
+  nix.settings.download-buffer-size = 524288000;
 
   # List services that you want to enable:
 
