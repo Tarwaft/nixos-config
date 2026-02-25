@@ -5,6 +5,9 @@ import Quickshell.Hyprland
 
 WrapperRectangle {
     required property var screen
+
+    readonly property var hyprMonitor: Hyprland.monitorFor(screen)
+
     margin: Theme.u(3, screen)
     radius: Theme.u(7, screen)
     color: "black"
@@ -13,7 +16,7 @@ WrapperRectangle {
         spacing: Theme.u(3, screen)
 
         Repeater {
-            model: Hyprland.workspaces
+            model: Hyprland.workspaces.values.filter(ws => ws.monitor === hyprMonitor)
 
             WrapperRectangle {
                 required property var modelData

@@ -13,6 +13,7 @@
             nrsst = "sudo nixos-rebuild switch --flake ~/nixos-config/ --show-trace";
             pioup = "pio run -t upload";
             ls = "lsd";
+            nv = "nvim";
         };
         history.size = 10000;
     };

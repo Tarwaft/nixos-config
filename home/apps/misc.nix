@@ -25,7 +25,7 @@
         oversteer
         obs-studio
         usbview
-        calibre
+        #calibre
         protonplus
         twitch-dl
         nwg-displays
@@ -35,7 +35,7 @@
         discord
         kdePackages.dolphin 
         kdePackages.konsole
-        krita
+        #krita
         obsidian
         rnote
         ungoogled-chromium
