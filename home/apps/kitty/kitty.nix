@@ -1,3 +1,4 @@
+{config,...}:
 {
     programs.kitty = {
         enable = true;
@@ -15,7 +16,7 @@
     };
 
 
-#  xdg.configFile."kitty/kitty.conf".source =
-#  config.lib.file.mkOutOfStoreSymlink "/home/tarwaft/nixos-config/home/apps/kitty/kitty.conf";
+  xdg.configFile."kitty/kitty.conf".source =
+  config.lib.file.mkOutOfStoreSymlink "/home/tarwaft/nixos-config/home/apps/kitty/kitty.conf";
 
 }
