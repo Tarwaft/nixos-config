@@ -26,7 +26,8 @@
       inputs.hyprlang.follows = "hyprland/hyprlang";
     };
     nix-gaming.url = "github:fufexan/nix-gaming";
-    
+
+   
     # astal = {
     #   url = "github:aylur/astal";
     #   inputs.nixpkgs.follows = "nixpkgs";
