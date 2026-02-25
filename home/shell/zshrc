@@ -1,12 +1,11 @@
 
-# Autostart zellij in interactive kitty terminals, but return to shell when you quit.
-if [[ -o interactive ]] && [[ -z "$ZELLIJ" ]] && [[ -t 1 ]]; then
-  # Optional: don't autostart inside ssh
-  # [[ -n "$SSH_CONNECTION" ]] && return
-
-  zellij -n default #attach -c main
-  print -P "%F{yellow}zellij exited%f (run: zellij attach -c main)"
-fi
+# if [[ -o interactive ]] && [[ -z "$ZELLIJ" ]] && [[ -t 1 ]]; then
+#   # Optional: don't autostart inside ssh
+#   # [[ -n "$SSH_CONNECTION" ]] && return
+#
+#   zellij -n default #attach -c main
+#   print -P "%F{yellow}zellij exited%f (run: zellij attach -c main)"
+# fi
 
 # Create/enable direnv for a flake-based project in the current directory
 direnv-flake() {

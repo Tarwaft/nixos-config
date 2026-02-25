@@ -645,7 +645,7 @@ require("lazy").setup({
 							files = { watcher = "server" },
 
 							-- your existing stuff
-							checkOnSave = { command = "clippy" },
+							checkOnSave = true, --{ command = "clippy" },
 							semanticHighlighting = { unresolvedReference = false },
 						},
 					},
