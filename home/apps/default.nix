@@ -6,5 +6,6 @@
         ./misc.nix
         ./signal.nix
         ./zed.nix
+        ./kitty/kitty.nix
     ];
 }
