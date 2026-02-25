@@ -1,5 +1,4 @@
 
-# Autostart zellij in interactive kitty terminals, but return to shell when you quit.
 if [[ -o interactive ]] && [[ -z "$ZELLIJ" ]] && [[ -t 1 ]]; then
   # Optional: don't autostart inside ssh
   # [[ -n "$SSH_CONNECTION" ]] && return
