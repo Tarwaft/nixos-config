@@ -13,7 +13,7 @@
         audacious
         orca-slicer
         kicad
-        libreoffice-still
+        #libreoffice-still
         anki-bin
         arduino
         vlc 
@@ -48,5 +48,6 @@
         element-desktop
         qpwgraph
         thunderbird
+        syncplay
     ]);
 }

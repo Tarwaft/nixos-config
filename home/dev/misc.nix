@@ -57,11 +57,18 @@
         libXrandr
         libxkbcommon
 
+        glfw
+        libGL
+        libXinerama
+        libXext
+
         arduino-cli
         lazygit
         platformio
         python3Packages.packaging
         picocom
+
+        xmake
     ]);
 
     home.sessionVariables = {

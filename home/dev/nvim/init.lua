@@ -655,7 +655,7 @@ require("lazy").setup({
 					cmd = {
 						"clangd",
 						"--background-index",
-						"--query-driver=**/.platformio/packages/**/bin/*gcc,**/.platformio/packages/**/bin/*g++",
+						-- "--query-driver=**/.platformio/packages/**/bin/*gcc,**/.platformio/packages/**/bin/*g++",
 					},
 				},
 				-- gopls = {},
@@ -940,6 +940,7 @@ require("lazy").setup({
 			local filetypes = {
 				"bash",
 				"c",
+				"cpp",
 				"diff",
 				"html",
 				"lua",

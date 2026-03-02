@@ -3,6 +3,8 @@
     home.packages = (with pkgs;
     [
         brightnessctl
+        libsForQt5.qt5.qtgraphicaleffects
+        qt6.qt5compat
         #hyprsysteminfo
         # inputs.astal.packages.${system}.default
         # ags

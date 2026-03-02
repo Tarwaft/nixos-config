@@ -14,6 +14,7 @@
             pioup = "pio run -t upload";
             ls = "lsd";
             nv = "nvim";
+            icat = "kitten icat";
         };
         history.size = 10000;
     };

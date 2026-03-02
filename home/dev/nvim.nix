@@ -8,9 +8,11 @@
         viAlias = true;
         vimAlias = true;
         extraPackages = with pkgs; [
+            vimPlugins.nvim-treesitter-parsers.cpp
             rust-analyzer 
             ripgrep       
-            gcc           
+            gcc
+            tree-sitter
             fd
             lua
             stylua
