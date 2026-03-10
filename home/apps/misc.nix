@@ -49,5 +49,8 @@
         qpwgraph
         thunderbird
         syncplay
+        protonmail-bridge
+        protonmail-bridge-gui
+
     ]);
 }

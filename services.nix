@@ -66,7 +66,7 @@
     '';
 
 
-
+    services.protonmail-bridge.enable = true;
     services.blueman.enable = true;
     services.mysql = {
         enable = true;

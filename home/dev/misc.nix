@@ -69,6 +69,7 @@
         picocom
 
         xmake
+        lldb
     ]);
 
     home.sessionVariables = {
