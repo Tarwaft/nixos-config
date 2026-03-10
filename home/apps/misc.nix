@@ -13,7 +13,7 @@
         audacious
         orca-slicer
         kicad
-        #libreoffice-still
+        onlyoffice-desktopeditors
         anki-bin
         arduino
         vlc 
