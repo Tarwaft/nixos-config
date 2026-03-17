@@ -658,6 +658,7 @@ require("lazy").setup({
 						-- "--query-driver=**/.platformio/packages/**/bin/*gcc,**/.platformio/packages/**/bin/*g++",
 					},
 				},
+				glslls = {},
 				-- gopls = {},
 				-- pyright = {},
 				-- arduino_language_server = {},
