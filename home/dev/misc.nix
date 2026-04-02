@@ -71,6 +71,8 @@
         xmake
         lldb
         glslls
+
+        dxvk
     ]);
 
     home.sessionVariables = {

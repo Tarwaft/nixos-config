@@ -35,5 +35,7 @@
         lsd
         ncdu
         ripgrep
+        unrar
+        wev
     ]);
 }
