@@ -44,6 +44,7 @@ xdg.portal = {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.kernelModules = ["wacom"];
   boot.kernelModules = [ "hid_logitech" "hid_logitech_hidpp" ];
 
 
