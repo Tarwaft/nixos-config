@@ -22,7 +22,6 @@
         mosquitto
         mqttx
         nodejs_25
-        nodePackages.node-red
         
         #libffi_3_3
         openssl
